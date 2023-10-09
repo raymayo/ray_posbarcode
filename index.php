@@ -17,9 +17,12 @@ if (isset($_POST['btn_login'])) {
 
   if (is_array($row)) {
 
-    if ($row['useremail'] == $useremail and $row['userpassword'] == $password) {
+    if ($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role']=="Admin") {
       echo $success = "Login Success";
       header('refresh: 1;ui/dashboard.php');
+    }else if($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role']=="User"){
+      echo $success = "Login Success";
+      header('refresh: 1;ui/user.php');
     }
   } else {
     echo $success = "Wrong Email or Password";
