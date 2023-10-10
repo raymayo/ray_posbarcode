@@ -21,7 +21,7 @@ if (isset($_POST['btn_login'])) {
       echo $success = "Login Success";
       header('refresh: 1;ui/dashboard.php');
 
-      $_SESSION['id'] = $row['id'];
+      $_SESSION['userid'] = $row['userid'];
       $_SESSION['username'] = $row['username'];
       $_SESSION['useremail'] = $row['useremail'];
       $_SESSION['role'] = $row['role'];
@@ -29,6 +29,12 @@ if (isset($_POST['btn_login'])) {
     } else if ($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role'] == "User") {
       echo $success = "Login Success";
       header('refresh: 1;ui/user.php');
+
+      $_SESSION['userid'] = $row['userid'];
+      $_SESSION['username'] = $row['username'];
+      $_SESSION['useremail'] = $row['useremail'];
+      $_SESSION['role'] = $row['role'];
+
     }
   } else {
     echo $success = "Wrong Email or Password";
