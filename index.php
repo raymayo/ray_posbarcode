@@ -39,7 +39,7 @@ if (isset($_POST['btn_login'])) {
         header('refresh: 1; ui/user.php');
     }
 } else {
-    $_SESSION['status'] = "Wrong Email or Password or Fields are empty.";
+    $_SESSION['status'] = "Wrong Email or Password";
     $_SESSION['status_code'] = 'error';
 }
 
@@ -84,7 +84,7 @@ if (isset($_POST['btn_login'])) {
         <form action="" method="post">
           <div class="input-group mb-3">
 
-            <input type="email" class="form-control" placeholder="Email" name='txt_email'>
+            <input type="email" class="form-control" placeholder="Email" name='txt_email' required>
 
             <div class="input-group-append">
               <div class="input-group-text">
@@ -94,7 +94,7 @@ if (isset($_POST['btn_login'])) {
           </div>
           <div class="input-group mb-3">
 
-            <input type="password" class="form-control" placeholder="Password" name="txt_password">
+            <input type="password" class="form-control" placeholder="Password" name="txt_password" required>
 
             <div class="input-group-append">
               <div class="input-group-text">
