@@ -15,30 +15,34 @@ if (isset($_POST['btn_login'])) {
 
   $row = $select->fetch(PDO::FETCH_ASSOC);
 
-  if (is_array($row)) {
+  if (is_array($row) && $row['useremail'] == $useremail && $row['userpassword'] == $password) {
 
-    if ($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role'] == "Admin") {
-      echo $success = "Login Success";
-      header('refresh: 1;ui/dashboard.php');
+    $username = $row['username'];
 
-      $_SESSION['userid'] = $row['userid'];
-      $_SESSION['username'] = $row['username'];
-      $_SESSION['useremail'] = $row['useremail'];
-      $_SESSION['role'] = $row['role'];
-      
-    } else if ($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role'] == "User") {
-      echo $success = "Login Success";
-      header('refresh: 1;ui/user.php');
+    $_SESSION['userid'] = $row['userid'];
+    $_SESSION['username'] = $row['username'];
+    $_SESSION['useremail'] = $row['useremail'];
+    $_SESSION['role'] = $row['role'];
 
-      $_SESSION['userid'] = $row['userid'];
-      $_SESSION['username'] = $row['username'];
-      $_SESSION['useremail'] = $row['useremail'];
-      $_SESSION['role'] = $row['role'];
+    if ($row['role'] == "Admin") {
 
+        $_SESSION['status'] = "Login Success, Welcome $username!";
+        $_SESSION['status_code'] = 'success';
+
+        header('refresh: 1; ui/dashboard.php');
+
+    } elseif ($row['role'] == "User") {
+
+        $_SESSION['status'] = "Login Success, Welcome $username!";
+        $_SESSION['status_code'] = 'success';
+        
+        header('refresh: 1; ui/user.php');
     }
-  } else {
-    echo $success = "Wrong Email or Password";
-  }
+} else {
+    $_SESSION['status'] = "Wrong Email or Password or Fields are empty.";
+    $_SESSION['status_code'] = 'error';
+}
+
 }
 
 ?>
@@ -57,6 +61,12 @@ if (isset($_POST['btn_login'])) {
   <link rel="stylesheet" href="./plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="./plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="./plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="./plugins/toastr/toastr.min.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="./dist/css/adminlte.min.css">
 </head>
@@ -122,8 +132,43 @@ if (isset($_POST['btn_login'])) {
   <script src="./plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- SweetAlert2 -->
+  <script src="./plugins/sweetalert2/sweetalert2.min.js"></script>
+  <!-- Toastr -->
+  <script src="./plugins/toastr/toastr.min.js"></script>
+
   <!-- AdminLTE App -->
   <script src="./dist/js/adminlte.min.js"></script>
 </body>
 
 </html>
+
+
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] !== '') {
+    $icon = $_SESSION['status_code'];
+    $message = $_SESSION['status'];
+
+    // Output JavaScript directly with values from PHP variables
+    echo <<<HTML
+    <script>
+        $(function() {
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top',
+                showConfirmButton: false,
+                timer: 5000
+            });
+
+            Toast.fire({
+                icon: '{$icon}',
+                title: '{$message}'
+            });
+        });
+    </script>
+HTML;
+
+    unset($_SESSION['status']);
+}
+?>
