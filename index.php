@@ -17,10 +17,16 @@ if (isset($_POST['btn_login'])) {
 
   if (is_array($row)) {
 
-    if ($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role']=="Admin") {
+    if ($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role'] == "Admin") {
       echo $success = "Login Success";
       header('refresh: 1;ui/dashboard.php');
-    }else if($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role']=="User"){
+
+      $_SESSION['id'] = $row['id'];
+      $_SESSION['username'] = $row['username'];
+      $_SESSION['useremail'] = $row['useremail'];
+      $_SESSION['role'] = $row['role'];
+      
+    } else if ($row['useremail'] == $useremail and $row['userpassword'] == $password and $row['role'] == "User") {
       echo $success = "Login Success";
       header('refresh: 1;ui/user.php');
     }
