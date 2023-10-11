@@ -19,8 +19,11 @@ if(isset($_POST['btn_update'])){
   $select ->execute();
   $row = $select-> fetch(PDO:: FETCH_ASSOC);
 
-  echo $row['useremail'];
-  echo $row['username'];
+  // echo $row['useremail'];
+ $username = $row['username'];
+
+  $_SESSION['status'] = "$username! Your password was successfully changed!";
+  $_SESSION['status_code'] = 'success';
 }
 
 ?>
@@ -106,4 +109,23 @@ if(isset($_POST['btn_update'])){
 
 <?php 
 include_once"footer.php";
+?>
+
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] !== '') {
+    $icon = $_SESSION['status_code'];
+    $message = $_SESSION['status'];
+
+    // Output JavaScript directly with values from PHP variables
+    echo <<<HTML
+    <script>
+            Swal.fire({
+                icon: '{$icon}',
+                title: '{$message}'
+            });
+    </script>
+HTML;
+
+    unset($_SESSION['status']);
+}
 ?>

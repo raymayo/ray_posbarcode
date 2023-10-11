@@ -16,6 +16,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+  <link rel="stylesheet" href="../plugins/sweetalert2/sweetalert2.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -246,6 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="../plugins/codemirror/mode/css/css.js"></script>
 <script src="../plugins/codemirror/mode/xml/xml.js"></script>
 <script src="../plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
 
 </body>
 
