@@ -10,7 +10,7 @@ if(isset($_POST['btn_update'])){
   $newPassword = $_POST['txt_newpassword'];
   $rnewPassword = $_POST['txt_rnewpassword'];
 
-  // echo "$oldPassword - $newPassword - $rnewPassword";
+
 
   $email = $_SESSION['useremail'];
   $select = $pdo -> prepare("select * from tbl_form where useremail='$email'");
@@ -19,11 +19,37 @@ if(isset($_POST['btn_update'])){
   $select ->execute();
   $row = $select-> fetch(PDO:: FETCH_ASSOC);
 
-  // echo $row['useremail'];
+ $useremail = $row['useremail'];
+ $userpassword = $row['userpassword'];
  $username = $row['username'];
 
-  $_SESSION['status'] = "$username! Your password was successfully changed!";
-  $_SESSION['status_code'] = 'success';
+
+
+  if ($row['userpassword'] === $oldPassword) {
+      if ($newPassword === $rnewPassword) {
+          $update = $pdo->prepare("UPDATE tbl_form SET userpassword = :pass WHERE useremail = :email");
+          $update->bindParam(':pass', $rnewPassword);
+          $update->bindParam(':email', $email);
+
+          if ($update->execute()) {
+              $statusMessage = "Password updated.";
+              $statusCode = 'success';
+          } else {
+              $statusMessage = "Password update failed.";
+              $statusCode = 'error';
+          }
+      } else {
+          $statusMessage = "New passwords don't match.";
+          $statusCode = 'error';
+      }
+  } else {
+      $statusMessage = "Incorrect current password.";
+      $statusCode = 'error';
+  }
+
+  $_SESSION['status'] = $statusMessage;
+  $_SESSION['status_code'] = $statusCode;
+
 }
 
 ?>
