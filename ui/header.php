@@ -262,7 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     .main-sidebar a{
-      color: #151618 !important;
+      color: white !important;
     }
 
     .form-control{
@@ -277,16 +277,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     .btn-sidebar{
-      background-color: #222325 !important;
+      background-color: #5C3EF4 !important;
       border: solid 0px !important;
     }
 
-    /* .fas{
-        color: #1d105f !important;
-    } */
+    .nav-icon{
+        color: #5C3EF4 !important;
+    }
 
     .navbar{
-      background-color: #222325 !important;
+      background-color: #151618 !important;
       border-bottom: #222325;
     }
 

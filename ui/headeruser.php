@@ -232,6 +232,55 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../plugins/codemirror/mode/xml/xml.js"></script>
     <script src="../plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 
+
+    <style>
+
+
+    .main-sidebar{
+    background-color: #222325 !important;
+    }
+
+    .brand-link {
+    border-bottom: 1px solid #151618 !important;
+    }
+
+    .main-sidebar a{
+      color: white !important;
+    }
+
+    .form-control{
+    background-color: #151618 !important;
+    color: white !important;
+    border: 0px !important;
+    }
+
+    .input-group-text{
+        background-color: #5C3EF4 !important;
+        border: 0px !important;
+    }
+
+    .btn-sidebar{
+      background-color: #5C3EF4 !important;
+      border: solid 0px !important;
+    }
+
+    .nav-icon{
+        color: #5C3EF4 !important;
+    }
+
+    .navbar{
+      background-color: #151618 !important;
+      border-bottom: #222325;
+    }
+
+    .navbar a{
+      color: white !important;
+
+    }
+
+
+    </style>
+
 </body>
 
 </html>

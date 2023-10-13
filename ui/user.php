@@ -96,6 +96,35 @@ include_once "headeruser.php";
 <!-- /.content-wrapper -->
 
 
+<style>
+  .content-wrapper{
+    background-color: #151618 !important; 
+    color: white;
+  }
+
+  .content{
+    color: #151618;
+  }
+
+  .btn-primary{
+    background-color: #5C3EF4 !important;
+    border: #5C3EF4 !important;
+}
+
+.card-outline{
+    border-color: #5C3EF4 !important;
+}
+
+.card{
+    background-color: #222325 !important;
+    border-radius: 8px;
+    color: white;
+}
+
+
+</style>
+
+
 
 
 <?php
