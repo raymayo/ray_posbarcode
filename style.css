@@ -1,0 +1,62 @@
+
+body{
+    background-color: #151618 !important; 
+}
+
+.card{
+    background-color: #222325 !important;
+    border-radius: 8px;
+
+}
+
+.card-body{
+    background-color: #222325 !important;
+    border-radius: 8px;
+}
+
+.card-header{
+    background-color: #222325 !important;
+    color: #fff;
+}
+
+.card-header{
+    background-color: #222325 !important;
+    color: #fff;
+}
+
+.card-header b{
+    color: #5C3EF4;
+}
+
+.card-outline{
+    border-color: #5C3EF4 !important;
+}
+
+.login-box-msg{
+    color: #979BA6 !important;
+}
+
+.form-control{
+    background-color: #151618 !important;
+    color: white !important;
+    border: 0px !important;
+}
+
+.input-group-text{
+    background-color: #5C3EF4 !important;
+    border: 0px !important;
+}
+
+.fas{
+    color: #1d105f !important;
+}
+
+.icheck-primary a{
+    color: white !important;
+}
+
+.btn-primary{
+    background-color: #5C3EF4 !important;
+    border: #5C3EF4 !important;
+}
+

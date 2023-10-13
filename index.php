@@ -69,6 +69,7 @@ if (isset($_POST['btn_login'])) {
 
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="./style.css">k
 </head>
 
 <body class="hold-transition login-page">
