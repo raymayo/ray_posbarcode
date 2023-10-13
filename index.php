@@ -141,6 +141,26 @@ if (isset($_POST['btn_login'])) {
 
   <!-- AdminLTE App -->
   <script src="./dist/js/adminlte.min.js"></script>
+
+  <style>
+
+    .swal2-popup.swal2-toast{
+      background-color: #222325 !important;
+    }
+
+    .swal2-title{
+      color: #ebebeb !important;
+    }
+
+    /* .swal2-icon.swal2-error{
+      border-color: #000 !important;
+    }
+
+    .swal2-icon.swal2-error{
+      color: #000 !important;
+    } */
+  </style>
+  
 </body>
 
 </html>
@@ -159,7 +179,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] !== '') {
                 toast: true,
                 position: 'top',
                 showConfirmButton: false,
-                timer: 5000
+                timer: 40000
             });
 
             Toast.fire({
