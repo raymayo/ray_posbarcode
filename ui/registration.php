@@ -253,6 +253,10 @@ if(isset($_POST['btn_save'])){
         background-color: #F53D3D;
         color: #151618;
     }
+
+    .card-footer{
+    background-color: transparent !important;
+}
 </style>
 
 <?php

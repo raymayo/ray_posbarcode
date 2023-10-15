@@ -158,6 +158,10 @@ if (isset($_POST['btn_update'])) {
     color: white; */
 }
 
+.card-footer{
+    background-color: transparent !important;
+}
+
 .btn-info{
     background-color: #5C3EF4 !important;
     border: #5C3EF4 !important;
