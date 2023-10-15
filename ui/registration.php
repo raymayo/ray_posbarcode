@@ -11,24 +11,36 @@ if(isset($_POST['btn_save'])){
     $userpassword = $_POST['password'];
     $userrole = $_POST['select_option'];
 
-    $insert = $pdo -> prepare("insert into tbl_form (username,useremail,userpassword,role) values(:name,:email,:password,:role)");
+    if(isset($_POST['email'])){
 
-    $insert->bindParam(':name',$username);
-    $insert->bindParam(':email',$useremail);
-    $insert->bindParam(':password',$userpassword);
-    $insert->bindParam(':role',$userrole);
+        $select = $pdo -> prepare("select useremail from tbl_form where useremail='$useremail'");
 
-    if($insert->execute()){
-        $statusMessage = "User is successfully registered.";
-        $statusCode = 'success';
-    }else{
-        $statusMessage = "There was a problem registering the user";
-        $statusCode = 'error';
+        $select -> execute();
+
+        if($select->rowCount()>0){
+            $statusMessage = "Email already exist.";
+            $statusCode = 'warning';
+        }else{
+
+            $insert = $pdo -> prepare("insert into tbl_form (username,useremail,userpassword,role) values(:name,:email,:password,:role)");
+
+            $insert->bindParam(':name',$username);
+            $insert->bindParam(':email',$useremail);
+            $insert->bindParam(':password',$userpassword);
+            $insert->bindParam(':role',$userrole);
+        
+            if($insert->execute()){
+                $statusMessage = "User registered successfully.";
+                $statusCode = 'success';
+            }else{
+                $statusMessage = "There was a problem registering the user";
+                $statusCode = 'error';
+            }
+        }
+        $_SESSION['status'] = $statusMessage;
+        $_SESSION['status_code'] = $statusCode;
     }
 
-
-    $_SESSION['status'] = $statusMessage;
-    $_SESSION['status_code'] = $statusCode;
 }
 
 
@@ -71,22 +83,22 @@ if(isset($_POST['btn_save'])){
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Name" name="name">
+                                        <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Enter email" name="email">
+                                        <input type="email" class="form-control" placeholder="Enter email" name="email" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                        <input type="password" class="form-control" placeholder="Password" name="password" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Role</label>
-                                        <select class="form-control" name="select_option">
+                                        <select class="form-control" name="select_option" required>
                                             <option value="" disabled selected >Select Role</option>
                                             <option>Admin</option>
                                             <option>User</option>
@@ -199,6 +211,10 @@ if(isset($_POST['btn_save'])){
 </style>
 
 <?php
+include_once "footer.php";
+?>
+
+<?php
 if (isset($_SESSION['status']) && $_SESSION['status'] !== '') {
   $icon = $_SESSION['status_code'];
   $message = $_SESSION['status'];
@@ -215,10 +231,6 @@ HTML;
 
   unset($_SESSION['status']);
 }
-?>
-
-<?php
-include_once "footer.php";
 ?>
 
 
