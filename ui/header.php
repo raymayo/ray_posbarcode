@@ -338,7 +338,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     .btn-sidebar{
       background-color: #5C3EF4 !important;
-      border: solid 0px !important;
+      border: none !important;
     }
 
     .nav-icon{

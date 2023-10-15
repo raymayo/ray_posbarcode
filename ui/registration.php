@@ -57,8 +57,8 @@ include_once "header.php";
 
                                     <div class="form-group">
                                         <label>Role</label>
-                                        <select class="form-control">
-                                            <option>Select</option>
+                                        <select class="form-control" name="select_option">
+                                            <option value="" disabled selected >Select Role</option>
                                             <option>Admin</option>
                                             <option>User</option>
                                         </select>
@@ -81,6 +81,7 @@ include_once "header.php";
                                         <td>Email</td>
                                         <td>Password</td>
                                         <td>Role</td>
+                                        <td>Delete</td>
                                     </tr>
                                 </thead>
                                 <tbody>
