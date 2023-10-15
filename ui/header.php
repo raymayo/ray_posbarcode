@@ -195,39 +195,99 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
+
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+              <a href="dashboard.php" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
                 </p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fas fa-table"></i>
                 <p>
                   Category
                 </p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Product
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  POS
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-list"></i>
+                <p>
+                  Order List
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Sales Report
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-calculator"></i>
+                <p>
+                  Tax
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-plus-square"></i>
                 <p>
                   Registration
                 </p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="changepassword.php" class="nav-link">
+                <i class="nav-icon fas fa-user-lock"></i>
+                <p>
+                  Change Password
+                </p>
+              </a>
+            </li>
+
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
                 </p>
               </a>
             </li>
+            
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
