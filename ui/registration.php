@@ -31,13 +31,13 @@ include_once "header.php";
 
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h5 class="m-0">Featured</h5>
+                    <h5 class="m-0">Registration Form</h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
 
-                            <form>
+                            <form action="" method="POST">
                                 <div class="card-body">
 
                                     <div class="form-group">
@@ -73,7 +73,35 @@ include_once "header.php";
 
                         </div>
                         <div class="col-md-8">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>#</td>
+                                        <td>Name</td>
+                                        <td>Email</td>
+                                        <td>Password</td>
+                                        <td>Role</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                    $select = $pdo -> prepare('SELECT * from tbl_form ORDER BY userid ASC');
+                                    $select->execute();
 
+                                    while($row = $select -> fetch(PDO::FETCH_OBJ)){
+                                        echo'
+                                        <tr>
+                                        <td>'.$row->userid.'</td>
+                                        <td>'.$row->username.'</td>
+                                        <td>'.$row->useremail.'</td>
+                                        <td>'.$row->userpassword.'</td>
+                                        <td>'.$row->role.'</td>
+                                        </tr>
+                                        ';
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -109,6 +137,29 @@ include_once "header.php";
         background-color: #222325 !important;
         border-radius: 8px;
         color: white;
+    }
+
+
+    .table td, .table th{
+        /* background-color: #151618; */
+        border-top: 1px solid #2F3237 !important;
+    }
+    
+
+    tbody tr:nth-child(even) {
+    background-color: #151618 !important;
+    }
+
+    tbody tr:nth-child(odd) {
+    background-color: #1A1C1E !important;
+    }
+
+    thead{
+    background-color: #151618 !important; 
+    }
+
+    tr{
+        border-radius: 8px !important;
     }
 </style>
 
