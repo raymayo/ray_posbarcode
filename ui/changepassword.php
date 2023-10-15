@@ -162,6 +162,11 @@ if (isset($_POST['btn_update'])) {
     background-color: #5C3EF4 !important;
     border: #5C3EF4 !important;
 }
+
+.swal2-popup {
+        background: #222426;
+        color: white;
+    }
 </style>
 
 
