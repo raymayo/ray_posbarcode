@@ -4,6 +4,35 @@ include_once "connectdb.php";
 session_start();
 
 include_once "header.php";
+
+if(isset($_POST['btn_save'])){
+    $username = $_POST['name'];
+    $useremail = $_POST['email'];
+    $userpassword = $_POST['password'];
+    $userrole = $_POST['select_option'];
+
+    $insert = $pdo -> prepare("insert into tbl_form (username,useremail,userpassword,role) values(:name,:email,:password,:role)");
+
+    $insert->bindParam(':name',$username);
+    $insert->bindParam(':email',$useremail);
+    $insert->bindParam(':password',$userpassword);
+    $insert->bindParam(':role',$userrole);
+
+    if($insert->execute()){
+        $statusMessage = "User is successfully registered.";
+        $statusCode = 'success';
+    }else{
+        $statusMessage = "There was a problem registering the user";
+        $statusCode = 'error';
+    }
+
+
+    $_SESSION['status'] = $statusMessage;
+    $_SESSION['status_code'] = $statusCode;
+}
+
+
+
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -42,17 +71,17 @@ include_once "header.php";
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Name">
+                                        <input type="text" class="form-control" placeholder="Enter Name" name="name">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Enter email">
+                                        <input type="email" class="form-control" placeholder="Enter email" name="email">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input type="password" class="form-control" placeholder="Password" name="password">
                                     </div>
 
                                     <div class="form-group">
@@ -67,7 +96,7 @@ include_once "header.php";
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary" name="btn_save">Save</button>
                                 </div>
                             </form>
 
@@ -162,11 +191,34 @@ include_once "header.php";
     tr{
         border-radius: 8px !important;
     }
+
+    .swal2-popup {
+        background: #222426;
+        color: white;
+    }
 </style>
 
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] !== '') {
+  $icon = $_SESSION['status_code'];
+  $message = $_SESSION['status'];
 
+  // Output JavaScript directly with values from PHP variables
+  echo <<<HTML
+    <script>
+            Swal.fire({
+                icon: '{$icon}',
+                title: '{$message}'
+            });
+    </script>
+HTML;
 
+  unset($_SESSION['status']);
+}
+?>
 
 <?php
 include_once "footer.php";
 ?>
+
+
