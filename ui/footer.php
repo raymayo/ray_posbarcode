@@ -39,7 +39,7 @@
 
 footer{
   background-color: #151618 !important;
-  border-top: #222325 !important;
+  border-color: #26282C !important;
 }
 
 footer a{

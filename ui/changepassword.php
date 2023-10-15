@@ -140,6 +140,31 @@ if (isset($_POST['btn_update'])) {
 <!-- /.content-wrapper -->
 
 
+<style>
+    .content-wrapper{
+    background-color: #151618 !important; 
+    color: white;
+  }
+
+.card{
+    background-color: #222325 !important;
+    border-radius: 8px;
+    color: white;
+}
+
+.card-header{
+    background-color: #5C3EF4 !important;
+    /* border-radius: 8px;
+    color: white; */
+}
+
+.btn-info{
+    background-color: #5C3EF4 !important;
+    border: #5C3EF4 !important;
+}
+</style>
+
+
 
 
 <?php

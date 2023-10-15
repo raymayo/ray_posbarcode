@@ -287,7 +287,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     .navbar{
       background-color: #151618 !important;
-      border-bottom: #222325;
+      border-color: #26282C !important;
     }
 
     .navbar a{
