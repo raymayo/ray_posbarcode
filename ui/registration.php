@@ -3,7 +3,38 @@
 include_once "connectdb.php";
 session_start();
 
-include_once "header.php";
+
+if ($_SESSION['useremail'] == '' OR $_SESSION['role'] == 'User') {
+    header('location:../index.php');
+  }
+  
+  if ($_SESSION['role'] == 'Admin') {
+    include_once "header.php";
+  } else {
+    include_once "headeruser.php";
+  }
+  
+
+error_reporting(0);
+
+$id = $_GET['id'];
+
+if(isset($id)){
+    $delete = $pdo -> prepare("delete from tbl_form where userid =".$id);
+
+    if($delete -> execute()){
+        $statusMessage = "Account deleted successfully.";
+        $statusCode = 'success';
+    }else{
+        $statusMessage = "Account was not deleted.";
+        $statusCode = 'success';
+    }
+
+    $_SESSION['status'] = $statusMessage;
+    $_SESSION['status_code'] = $statusCode;
+}
+
+
 
 if(isset($_POST['btn_save'])){
     $username = $_POST['name'];
@@ -138,6 +169,9 @@ if(isset($_POST['btn_save'])){
                                         <td>'.$row->useremail.'</td>
                                         <td>'.$row->userpassword.'</td>
                                         <td>'.$row->role.'</td>
+                                        <td>
+                                        <a href="registration.php?id='.$row->userid.'" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a>
+                                        </td>
                                         </tr>
                                         ';
                                     }
@@ -207,6 +241,17 @@ if(isset($_POST['btn_save'])){
     .swal2-popup {
         background: #222426;
         color: white;
+    }
+
+    .btn-danger{
+        background-color: transparent;
+        color: #F53D3D;
+        border: none;
+    }
+
+    .btn-danger:hover{
+        background-color: #F53D3D;
+        color: #151618;
     }
 </style>
 
