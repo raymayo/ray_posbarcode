@@ -64,6 +64,26 @@ if (isset($_POST['btn_update'])) {
 }
 
 
+if(isset($_POST['btn_delete'])){
+
+  $delete = $pdo -> prepare("delete from tbl_category where catid=".$_POST['btn_delete']);
+
+  if($delete -> execute()){
+    $statusMessage = "Category deleted successfully";
+    $statusCode = 'success';
+  }else{
+    $statusMessage = "Category failed to be deleted";
+    $statusCode = 'success';
+  }
+
+    $_SESSION['status'] = $statusMessage;
+    $_SESSION['status_code'] = $statusCode;
+
+}else{
+
+}
+
+
 
 
 
