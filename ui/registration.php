@@ -256,7 +256,25 @@ if(isset($_POST['btn_save'])){
 
     .card-footer{
     background-color: transparent !important;
+    }
+
+    .swal2-styled.swal2-confirm{
+    background-color: #5C3EF4;
+    }
+
+    .swal2-icon.swal2-warning{
+    border-color: rgba(92,62,244,0.4);
+    color: #F58D3D;
+    }
+
+.swal2-icon.swal2-error [class^=swal2-x-mark-line]{
+    background-color: #F53D3D;
 }
+
+.swal2-icon.swal2-error{
+    border-color: rgba(245,61,61,0.4);
+}
+
 </style>
 
 <?php

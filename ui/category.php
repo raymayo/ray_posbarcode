@@ -4,6 +4,39 @@ include_once "connectdb.php";
 session_start();
 
 include_once"header.php";
+
+
+if(isset($_POST['btn_save'])){
+
+    $category = $_POST['category'];
+
+    if(empty($category)){
+        $statusMessage = "Category Field is Empty";
+        $statusCode = 'error';
+    }else{
+        $insert = $pdo -> prepare("insert into tbl_category (category) values(:cat)");
+
+        $insert -> bindParam(':cat', $category);
+
+        if($insert -> execute()){
+            $statusMessage = "Category added successfully";
+            $statusCode = 'success';
+        }else{
+            $statusMessage = "Category failed to be added";
+            $statusCode = 'error';
+        }
+    }
+
+    $_SESSION['status'] = $statusMessage;
+    $_SESSION['status_code'] = $statusCode;
+}
+
+
+
+
+
+
+
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -66,25 +99,25 @@ include_once"header.php";
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <?php 
-                                    $select = $pdo -> prepare('SELECT * from tbl_form ORDER BY userid ASC');
+                                    <?php 
+                                    $select = $pdo -> prepare('SELECT * from tbl_category ORDER BY catid ASC');
                                     $select->execute();
 
                                     while($row = $select -> fetch(PDO::FETCH_OBJ)){
                                         echo'
                                         <tr>
-                                        <td>'.$row->userid.'</td>
-                                        <td>'.$row->username.'</td>
-                                        <td>'.$row->useremail.'</td>
-                                        <td>'.$row->userpassword.'</td>
-                                        <td>'.$row->role.'</td>
+                                        <td>'.$row->catid.'</td>
+                                        <td>'.$row->category.'</td>
                                         <td>
-                                        <a href="registration.php?id='.$row->userid.'" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a>
+                                        <button type="submit" class="btn btn-warning" value="'.$row->catid.'" name="btn_edit"><i class="fa fa-edit"></i></button>
+                                        </td>
+                                        <td>
+                                        <button type="submit" class="btn btn-info" value="'.$row->catid.'" name="btn_delete"><i class="fa fa-trash-alt"></i></button>
                                         </td>
                                         </tr>
                                         ';
                                     }
-                                    ?> -->
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -130,6 +163,101 @@ include_once"header.php";
     background-color: transparent !important;
 }
 
+.btn-info{
+    background-color: transparent;
+    border-color: #F53D3D;;
+    color: #F53D3D;
+}
+
+.btn-info:hover{
+    color: #151618;
+    background-color: #F53D3D;
+    border-color: #F53D3D;
+}
+
+.btn-info:active{
+    color: #151618 !important;
+    background-color: #F53D3D !important;
+    border-color: #F53D3D !important;
+}
+
+.btn-info:focus{
+    background-color: transparent !important;
+    border-color: #F53D3D !important;
+    color: #F53D3D !important;
+}
+
+.btn-warning{
+    background-color: transparent;
+    border-color: #F5AB3D;
+    color: #F5AB3D;
+}
+
+.btn-warning:hover{
+    color: #151618;
+    background-color: #F5AB3D;
+    border-color: #F5AB3D;
+}
+
+.btn-warning:active{
+    filter: brightness(0.5)
+}
+
+.btn-warning:focus{
+    background-color: transparent !important;
+    border-color: #F5AB3D !important;
+    color: #F5AB3D;
+}
+
+.table td, .table th{
+        /* background-color: #151618; */
+        border-top: 1px solid #2F3237 !important;
+    }
+    
+
+    tbody tr:nth-child(even) {
+    background-color: #151618 !important;
+    }
+
+    tbody tr:nth-child(odd) {
+    background-color: #1A1C1E !important;
+    }
+
+    thead{
+    background-color: #151618 !important; 
+    }
+
+    tr{
+        border-radius: 8px !important;
+    }
+
+
+
+
+.swal2-popup {
+        background: #222426;
+        color: white;
+    }
+
+.swal2-icon.swal2-warning{
+    border-color: rgba(92,62,244,0.4);
+    color: #F58D3D;
+    }
+
+.swal2-styled.swal2-confirm{
+    background-color: #5C3EF4;
+}
+
+.swal2-icon.swal2-error [class^=swal2-x-mark-line]{
+    background-color: #F53D3D;
+}
+
+.swal2-icon.swal2-error{
+    border-color: rgba(245,61,61,0.4);
+}
+
+
+
 
 </style>
 
@@ -138,4 +266,23 @@ include_once"header.php";
 
 <?php 
 include_once"footer.php";
+?>
+
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] !== '') {
+  $icon = $_SESSION['status_code'];
+  $message = $_SESSION['status'];
+
+  // Output JavaScript directly with values from PHP variables
+  echo <<<HTML
+    <script>
+            Swal.fire({
+                icon: '{$icon}',
+                title: '{$message}'
+            });
+    </script>
+HTML;
+
+  unset($_SESSION['status']);
+}
 ?>
