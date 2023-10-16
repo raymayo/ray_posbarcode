@@ -35,6 +35,39 @@ if (isset($_POST['btn_save'])) {
 
 
 
+if (isset($_POST['btn_update'])) {
+
+    $category = $_POST['category'];
+    $id = $_POST['catid'];
+
+    if (empty($category)) {
+
+        $statusMessage = "Category Field is Empty";
+        $statusCode = 'error';
+
+    } else {
+        $update = $pdo->prepare("update tbl_category set category = :cat where catid=".$id);
+
+        $update->bindParam(':cat', $category);
+
+        if ($update->execute()) {
+            $statusMessage = "Category updated successfully";
+            $statusCode = 'success';
+        } else {
+            $statusMessage = "Category failed to be updated";
+            $statusCode = 'error';
+        }
+    }
+
+    $_SESSION['status'] = $statusMessage;
+    $_SESSION['status_code'] = $statusCode;
+}
+
+
+
+
+
+
 
 
 ?>
@@ -274,6 +307,7 @@ if (isset($_POST['btn_save'])) {
     tr {
         border-radius: 8px !important;
     }
+    
 
 
 
