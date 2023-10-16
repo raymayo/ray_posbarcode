@@ -182,7 +182,7 @@ if(isset($_POST['btn_delete'])){
                             
 
                             <div class="col-md-8">
-                                <table class="table table-striped">
+                                <table class="table table-striped" id="table_category">
                                     <thead>
                                         <tr>
                                             <td>#</td>
@@ -327,6 +327,38 @@ if(isset($_POST['btn_delete'])){
     tr {
         border-radius: 8px !important;
     }
+
+    /* .page-link {
+        background-color: red;
+    } */
+
+    .page-item.disabled .page-link{
+        background-color: #151618;
+        border-color: #151618;
+    }
+
+    .page-item.active .page-link {
+        background-color: #5C3EF4; 
+        border-color: #5C3EF4;
+
+    }
+
+    .page-link{
+        background-color: #151618; 
+        border-color: #151618;
+        color: #5C3EF4;
+
+    }
+
+    .page-link:hover{
+        background-color: #1E2022; 
+        border-color: #1E2022;
+        color: #5C3EF4;
+    }
+
+    .wrapper{
+        background-color: #151618 ;
+    }
     
 
 
@@ -380,3 +412,13 @@ HTML;
     unset($_SESSION['status']);
 }
 ?>
+
+
+<script>
+   $(document).ready(function (){
+    $('#table_category').DataTable({
+        "lengthMenu": [8, 16, 24],
+        "pageLength": 8,
+    });
+   }) ;
+</script>
