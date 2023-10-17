@@ -113,17 +113,17 @@ if(isset($_POST['btn_save'])){
                                 <div class="card-body">
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name</label>
+                                        <label>Name</label>
                                         <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
+                                        <label>Email address</label>
                                         <input type="email" class="form-control" placeholder="Enter email" name="email" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
+                                        <label>Password</label>
                                         <input type="password" class="form-control" placeholder="Password" name="password" required>
                                     </div>
 

@@ -118,8 +118,8 @@ if(isset($_POST['btn_delete'])){
                 <div class="card-header">
                     <h5 class="m-0">Category Form</h5>
                 </div>
+                <form action="" method="POST">
                 <div class="card-body">
-                    <form action="" method="POST">
                         <div class="row">
 
                         <?php 
@@ -215,9 +215,8 @@ if(isset($_POST['btn_delete'])){
                                 </table>
                             </div>
                         </div>
-                    </form>
-
-                </div>
+                     </div>
+                </form>
             </div>
         </div><!-- /.container-fluid -->
     </div>
