@@ -58,14 +58,47 @@ include_once "header.php";
                                             <option>User</option>
                                         </select>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" placeholder="Enter Description..." name="description" rows="8" required></textarea>
+                                    </div>
                                     
 
                                     </div>
                                     <div class="col-md-6">
-                                        <h1>6</h1>
+
+                                    <div class="form-group">
+                                        <label>Stock Quantity</label>
+                                        <input type="number" min="1" step="any" class="form-control" placeholder="Enter Quantity" name="numOf_Stock" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Purchase Price</label>
+                                        <input type="number" min="1" step="any" class="form-control" placeholder="Enter Purchase Price" name="purchase_Price" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Sale Price</label>
+                                        <input type="number" min="1" step="any" class="form-control" placeholder="Enter Sale Price" name="sale_Price" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Product Image</label>
+                                        <input type="file" class="input-group"  name="product_Image" required>
+                                        <p>Upload Product Image</p>
+                                    </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <div class="text-center p-2">
+                                    <button type="submit" class="btn btn-primary" name="btn_save">Save Product</button>
+                                    </div>
+                                     </div>
                         </form>
                     </div>
 
@@ -102,6 +135,31 @@ include_once "header.php";
         background-color: #222325 !important;
         border-radius: 8px;
         color: white;
+    }
+
+    .card-footer{
+    background-color: transparent !important;
+    }
+
+    .swal2-styled.swal2-confirm{
+    background-color: #5C3EF4;
+    }
+
+    .swal2-icon.swal2-warning{
+    border-color: rgba(92,62,244,0.4);
+    color: #F58D3D;
+    }
+
+.swal2-icon.swal2-error [class^=swal2-x-mark-line]{
+    background-color: #F53D3D;
+}
+
+.swal2-icon.swal2-error{
+    border-color: rgba(245,61,61,0.4);
+}
+
+.card-header {
+        border-color: #38393B !important;
     }
 </style>
 

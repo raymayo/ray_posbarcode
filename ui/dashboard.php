@@ -59,6 +59,10 @@ include_once "header.php";
 
 
 <style>
+
+.card-header {
+        border-color: #38393B !important;
+    }
   .content-wrapper{
     background-color: #151618 !important; 
     color: white;

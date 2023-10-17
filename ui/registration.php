@@ -280,6 +280,10 @@ if(isset($_POST['btn_save'])){
     border-color: rgba(245,61,61,0.4);
 }
 
+.card-header {
+        border-color: #38393B !important;
+    }
+
 </style>
 
 <?php
