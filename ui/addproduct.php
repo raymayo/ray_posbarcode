@@ -54,8 +54,17 @@ include_once "header.php";
                                         <label>Category</label>
                                         <select class="form-control" name="select_option" required>
                                             <option value="" disabled selected >Select Category</option>
-                                            <option>Admin</option>
-                                            <option>User</option>
+                                            
+                                            <?php
+                                                // Prepare and execute the query
+                                                $select = $pdo->prepare("SELECT category FROM tbl_category ORDER BY catid DESC");
+                                                $select->execute();
+
+                                                // Fetch the results and display them
+                                                while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+                                                    echo '<option>' . htmlspecialchars($row['category']) . '</option>';
+                                                }
+                                                ?>
                                         </select>
                                     </div>
 
