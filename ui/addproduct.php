@@ -38,8 +38,40 @@ if (isset($_POST['btn_save'])) {
                 $productimage = $unique_filename;
 
                 if (empty($barcode)) {
-                    $statusMessage = "We will write code here";
-                    $statusCode = 'warning';
+
+                    $insert = $pdo->prepare("INSERT INTO tbl_product (product, category, description, stock, purchaseprice, saleprice, image) VALUES (:product, :category, :description, :stock, :pprice, :saleprice, :img)");
+
+
+                    // $insert->bindParam(':barcode', $barcode);
+
+                    $insert->bindParam(':product', $product);
+                    $insert->bindParam(':category', $category);
+                    $insert->bindParam(':description', $description);
+                    $insert->bindParam(':stock', $stock);
+                    $insert->bindParam(':pprice', $purchase_Price);
+                    $insert->bindParam(':saleprice', $sale_Price);
+                    $insert->bindParam(':img', $productimage);
+
+                    $insert->execute();
+
+                    $pid = $pdo -> lastInsertId();
+
+                    date_default_timezone_set("Asia/Manila");
+                    $newbarcode = $pid.date('his');
+
+                    $update = $pdo -> prepare("update tbl_product set barcode='$newbarcode' where pid='".$pid."'");
+
+                    if($update->execute()){
+
+                        $statusMessage = "Product uploaded successfully";
+                        $statusCode = 'success';
+                    }else{
+
+                        $statusMessage = "Product failed to upload";
+                        $statusCode = 'error';
+                    }
+
+
                 } else {
                     $insert = $pdo->prepare("INSERT INTO tbl_product (barcode, product, category, description, stock, purchaseprice, saleprice, image) VALUES (:barcode, :product, :category, :description, :stock, :pprice, :saleprice, :img)");
 
@@ -117,7 +149,7 @@ if (isset($_POST['btn_save'])) {
 
                                         <div class="form-group">
                                             <label>Barcode</label>
-                                            <input type="text" class="form-control" placeholder="Enter Barcode" name="barcode" required>
+                                            <input type="text" class="form-control" placeholder="Enter Barcode" name="barcode">
                                         </div>
 
                                         <div class="form-group">
