@@ -10,12 +10,12 @@ if (isset($_POST['btn_login'])) {
   $password = $_POST['txt_password'];
 
 
-  $select = $pdo->prepare("select * from tbl_form where useremail='$useremail' AND userpassword='$password'");
+  $select = $pdo->prepare("select * from tbl_form where useremail='$useremail' OR username='$useremail' AND userpassword='$password'");
   $select->execute();
 
   $row = $select->fetch(PDO::FETCH_ASSOC);
 
-  if (is_array($row) && $row['useremail'] == $useremail && $row['userpassword'] == $password) {
+  if (is_array($row) && ($row['useremail'] == $useremail || $row['username'] == $useremail) && $row['userpassword'] == $password) {
 
     $username = $row['username'];
 
@@ -85,7 +85,7 @@ if (isset($_POST['btn_login'])) {
         <form action="" method="post">
           <div class="input-group mb-3">
 
-            <input type="email" class="form-control" placeholder="Email" name='txt_email' required>
+            <input type="text" class="form-control" placeholder="Email or Username" name='txt_email' required>
 
             <div class="input-group-append">
               <div class="input-group-text">
