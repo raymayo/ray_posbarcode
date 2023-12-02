@@ -1,8 +1,8 @@
 <?php
-
+session_start();
 include_once "ui/connectdb.php";
 
-session_start();
+
 
 if (isset($_POST['btn_login'])) {
 
