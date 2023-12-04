@@ -53,16 +53,18 @@
   <style>
 
 footer{
-  background-color: #151618 !important;
-  border-color: #26282C !important;
+  background-color: #151823 !important;
+  border-color: #272C3F !important;
 }
 
 footer a{
-  color: #5C3EF4 !important;
+  color: #D6A78D !important;
 
 }
 
-
+.badge-warning{
+  background-color: #D6A78D;
+}
 </style>
 
 </body>

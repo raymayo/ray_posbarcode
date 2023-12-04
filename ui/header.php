@@ -169,10 +169,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
-        <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">POS BARCODE</span>
-      </a>
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -319,19 +315,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
     .main-sidebar{
-    background-color: #222325 !important;
+    background-color: #151823 !important;
+    box-shadow: none !important;
+    border-right: 1px solid #272C3F !important;
     }
 
     .brand-link {
-    border-bottom: 1px solid #151618 !important;
+    border-bottom: 1px solid #272C3F !important;
     }
 
     .main-sidebar a{
       color: white !important;
     }
 
+    .user-panel{
+    border-bottom: 1px solid #272C3F !important;
+    }
+
     .form-control{
-    background-color: #151618 !important;
+    background-color: #1B1E29 !important;
     color: white !important;
     border: 0px !important;
     }
@@ -342,17 +344,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     .btn-sidebar{
-      background-color: #5C3EF4 !important;
+      background-color: #D6A78D !important;
       border: none !important;
+    }
+     .main-sidebar .fa-search{
+      color: #272C3F !important;
     }
 
     .nav-icon{
-        color: #5C3EF4 !important;
+        color: #D6A78D !important;
     }
 
     .navbar{
-      background-color: #151618 !important;
-      border-color: #26282C !important;
+      background-color: #151823 !important;
+      border-color: #272C3F !important;
     }
 
     .navbar a{
