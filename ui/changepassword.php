@@ -36,20 +36,23 @@ if (isset($_POST['btn_update'])) {
 
 
   if ($row['userpassword'] === $oldPassword) {
-    if ($newPassword === $rnewPassword) {
-      $update = $pdo->prepare("UPDATE tbl_form SET userpassword = :pass WHERE useremail = :email");
-      $update->bindParam(':pass', $rnewPassword);
-      $update->bindParam(':email', $email);
 
-      if ($update->execute()) {
-        $statusMessage = "Password updated.";
+    if ($newPassword !== '' && $rnewPassword !== '') {
+
+      if ($newPassword === $rnewPassword) {
+        $update = $pdo->prepare("UPDATE tbl_form SET userpassword = :pass WHERE useremail = :email");
+        $update->bindParam(':pass', $rnewPassword);
+        $update->bindParam(':email', $email);
+        $update->execute();
+
+        $statusMessage = "Password Updated.";
         $statusCode = 'success';
-      } else {
-        $statusMessage = "Password update failed.";
+      } else{
+        $statusMessage = "New Password does not match.";
         $statusCode = 'error';
       }
     } else {
-      $statusMessage = "New passwords don't match.";
+      $statusMessage = "Fields are empty";
       $statusCode = 'error';
     }
   } else {
@@ -141,55 +144,54 @@ if (isset($_POST['btn_update'])) {
 
 
 <style>
-    .content-wrapper{
-    background-color: #151618 !important; 
+  .content-wrapper {
+    background-color: #151618 !important;
     color: white;
   }
 
-.card{
+  .card {
     background-color: #222325 !important;
     border-radius: 8px;
     color: white;
-}
+  }
 
-.card-header{
+  .card-header {
     background-color: #5C3EF4 !important;
     /* border-radius: 8px;
     color: white; */
-}
+  }
 
-.card-footer{
+  .card-footer {
     background-color: transparent !important;
-}
+  }
 
-.btn-info{
+  .btn-info {
     background-color: #5C3EF4 !important;
     border: #5C3EF4 !important;
-}
+  }
 
-.swal2-popup {
-        background: #222426;
-        color: white;
-    }
+  .swal2-popup {
+    background: #222426;
+    color: white;
+  }
 
-    .swal2-styled.swal2-confirm{
+  .swal2-styled.swal2-confirm {
     background-color: #5C3EF4;
-}
+  }
 
-.swal2-icon.swal2-warning{
-    border-color: rgba(92,62,244,0.4);
+  .swal2-icon.swal2-warning {
+    border-color: rgba(92, 62, 244, 0.4);
     color: #F58D3D;
-    }
+  }
 
 
-.swal2-icon.swal2-error [class^=swal2-x-mark-line]{
+  .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
     background-color: #F53D3D;
-}
+  }
 
-.swal2-icon.swal2-error{
-    border-color: rgba(245,61,61,0.4);
-}
-
+  .swal2-icon.swal2-error {
+    border-color: rgba(245, 61, 61, 0.4);
+  }
 </style>
 
 
