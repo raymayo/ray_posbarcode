@@ -40,13 +40,11 @@ include_once "header.php";
                                         <td>Category</td>
                                         <td>Description</td>
                                         <td>Stock</td>
-                                        <td>PurchasePrice</td>
-                                        <td>SalePrice</td>
+                                        <td>Purchase Price</td>
+                                        <td>Sale Price</td>
                                         <td>Image</td>
-                                        <td>Print Barcode</td>
-                                        <td>View</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                                        <td>Action Icons</td>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,25 +62,20 @@ include_once "header.php";
                                         <td>' .$row->stock. '</td>
                                         <td>' .$row->purchaseprice.'</td>
                                         <td>' .$row->saleprice.'</td>
-                                        <td>' .$row->image.'</td>
-
+                                        <td><image src"productimages/'.$row->image.'" class="img-rounded" width="40px" height="40px"</td>
                                         <td>
-                                        <a href="registration.php?id=' . $row->pid . '" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a>
-                                        </td>
+                                        <div class="btn-group">
 
-                                        <td>
-                                        <a href="registration.php?id=' . $row->pid . '" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a>
+                                        <a href="printbarcode.php?id"='.$row->pid.'" class="btn btn-primary btn-xs" role="button"><span class="fa fa-barcode" style="color:#fff" data-toggle="tooltip" title="Print Barcode"></span></a>
+                                        
+                                        <a href="viewproduct.php?id"='.$row->pid.'" class="btn btn-warning btn-xs" role="button"><span class="fa fa-eye" style="color:#fff" data-toggle="tooltip" title="View Product"></span></a>
+                                        
+                                        <a href="editproduct.php?id"='.$row->pid.'" class="btn btn-success btn-xs" role="button"><span class="fa fa-edit" style="color:#fff" data-toggle="tooltip" title="Edit Product"></span></a>
+                                        
+                                        <button id='.$row->pid.' class="btn btn-danger btn-xs"><span class="fa fa-trash-alt" style="color:#fff" data-toggle="tooltip" title="Delete Product"></span></button>
+                                        </div>
                                         </td>
-
-                                        <td>
-                                        <a href="registration.php?id=' . $row->pid . '" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a>
-                                        </td>
-
-                                        <td>
-                                        <a href="registration.php?id=' . $row->pid . '" class="btn btn-danger"><i class="fa fa-trash-alt"></i></a>
-                                        </td>
-                                        </tr
-                                        ';
+                                        </tr';
                                     }
                                     ?>
                                 </tbody>
