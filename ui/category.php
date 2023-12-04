@@ -225,8 +225,8 @@ if(isset($_POST['btn_delete'])){
 <!-- /.content-wrapper -->
 
 <style>
-    .content-wrapper {
-        background-color: #151618 !important;
+ .content-wrapper {
+        background-color: #151823 !important;
         color: white;
     }
 
@@ -239,16 +239,18 @@ if(isset($_POST['btn_delete'])){
         border: #5C3EF4 !important;
     }
 
-    .card-outline {
-        border-color: #5C3EF4 !important;
+    .card-header{
+        border-bottom: 1px solid #272C3F !important;
     }
 
-    .card-header {
-        border-color: #38393B !important;
+    .card-outline {
+        border-color: #5C3EF4 !important;
+        border: none !important;
     }
 
     .card {
-        background-color: #222325 !important;
+        background-color: #151823 !important;
+        border: 1px solid #272C3F !important;
         border-radius: 8px;
         color: white;
     }

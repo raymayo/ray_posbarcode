@@ -60,32 +60,35 @@ include_once "header.php";
 
 <style>
 
-.card-header {
-        border-color: #38393B !important;
+ .content-wrapper {
+        background-color: #151823 !important;
+        color: white;
     }
-  .content-wrapper{
-    background-color: #151618 !important; 
-    color: white;
-  }
 
-  .content{
-    color: #151618;
-  }
+    .content {
+        color: #151618;
+    }
 
-  .btn-primary{
-    background-color: #5C3EF4 !important;
-    border: #5C3EF4 !important;
-}
+    .btn-primary {
+        background-color: #5C3EF4 !important;
+        border: #5C3EF4 !important;
+    }
 
-.card-outline{
-    border-color: #5C3EF4 !important;
-}
+    .card-header{
+        border-bottom: 1px solid #272C3F !important;
+    }
 
-.card{
-    background-color: #222325 !important;
-    border-radius: 8px;
-    color: white;
-}
+    .card-outline {
+        border-color: #5C3EF4 !important;
+        border: none !important;
+    }
+
+    .card {
+        background-color: #151823 !important;
+        border: 1px solid #272C3F !important;
+        border-radius: 8px;
+        color: white;
+    }
 
 
 </style>
