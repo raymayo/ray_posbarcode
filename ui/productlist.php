@@ -32,7 +32,7 @@ include_once "header.php";
 
                     <div class="card card-primary card-outline">
                         <div class="card-body">
-                            <table class="table table-striped">
+                            <table class="table table-striped" id='table_product'>
                                 <thead>
                                     <tr>
                                         <td>Barcode</td>
@@ -132,6 +132,22 @@ include_once "header.php";
 
 
 
+
 <?php
 include_once "footer.php";
 ?>
+
+<script>
+   $(document).ready(function (){
+    $('#table_product').DataTable({
+        "lengthMenu": [8, 16, 24],
+        "pageLength": 8,
+    });
+   }) ;
+</script>
+
+<script>
+   $(document).ready(function (){
+       $('[data-toggle="tooltip"]').tooltip();
+}) ;
+</script>
