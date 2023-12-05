@@ -229,14 +229,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="addproduct.php" class="nav-link">
+                <i class="nav-icon fas fa-list-ul"></i>
+                <p>
+                  Product List
+                </p>
+              </a>
+            </li>
+
+            <!-- <li class="nav-item">
+              <a href="productlist.php" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   POS
                 </p>
               </a>
-            </li>
-
+            </li> -->
+<!-- 
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-list"></i>
@@ -244,8 +253,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Order List
                 </p>
               </a>
-            </li>
-
+            </li> -->
+<!-- 
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -253,16 +262,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Sales Report
                 </p>
               </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-calculator"></i>
                 <p>
                   Tax
                 </p>
               </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
               <a href="registration.php" class="nav-link">
