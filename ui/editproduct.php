@@ -12,20 +12,20 @@ include_once "header.php";
 $id = $_GET['id'];
 
 $select = $pdo->prepare("select * from tbl_product where pid=$id");
-$select -> execute();
+$select->execute();
 
-$row=$select->fetch(PDO::FETCH_ASSOC);
+$row = $select->fetch(PDO::FETCH_ASSOC);
 
 $id_db = $row['pid'];
 
-$barcode_db=$row['barcode'];
-$product_db=$row['product'];
-$category_db=$row['category'];
-$description_db=$row['description'];
-$stock_db=$row['stock'];
-$purchaseprice_db=$row['purchaseprice'];
-$saleprice_db=$row['saleprice'];
-$image_db=$row['image'];
+$barcode_db = $row['barcode'];
+$product_db = $row['product'];
+$category_db = $row['category'];
+$description_db = $row['description'];
+$stock_db = $row['stock'];
+$purchaseprice_db = $row['purchaseprice'];
+$saleprice_db = $row['saleprice'];
+$image_db = $row['image'];
 
 // print_r($row);
 
@@ -47,27 +47,46 @@ if (isset($_POST['btneditproduct'])) {
     $f_name = $_FILES['product_image']['name'];
 
     if (!empty($f_name)) {
-        // Handle file upload here if needed
-        $image_db = "path/to/uploaded/image"; // Replace this with your logic for handling the uploaded image
+        $f_tmp = $_FILES['product_image']['tmp_name'];
+        $f_extension = strtolower(pathinfo($f_name, PATHINFO_EXTENSION));
+        $f_size = $_FILES['product_image']['size'];
+
+        // Define allowed file extensions and maximum file size
+        $allowed_extensions = ['jpg', 'png', 'jpeg'];
+        $max_file_size = 3500000; // 3MB
+
+        if (in_array($f_extension, $allowed_extensions)) {
+            if ($f_size <= $max_file_size) {
+                $unique_filename = uniqid() . '_' . $f_name;
+                $store = "../productimage/" . $unique_filename;
+
+                if (move_uploaded_file($f_tmp, $store)) {
+                    
+                    $update = $pdo->prepare("UPDATE tbl_product SET product = :product, category = :category, description = :description, stock = :stock, purchaseprice = :pprice, saleprice = :sprice, image = :image WHERE pid = $id");
+
+                    $update->bindParam(':product', $product_txt);
+                    $update->bindParam(':category', $category_txt);
+                    $update->bindParam(':description', $description_txt); // Fix variable name here
+                    $update->bindParam(':stock', $stock_txt);
+                    $update->bindParam(':pprice', $purchase_Price_txt);
+                    $update->bindParam(':sprice', $sale_Price_txt);
+                    $update->bindParam(':image', $unique_filename);
+
+                    if ($update->execute()) {
+                        $statusMessage = "Product Updated Successfully"; // Updated status message
+                        $statusCode = 'success';
+                    } else {
+                        $statusMessage = "Product Update Unsuccessful"; // Updated status message
+                        $statusCode = 'error';
+                    }
+                }
+            }else{
+                $statusMessage = "File should be less than 3MB";
+                $statusCode = 'warning';
+            }
+        }
     }
 
-    $update = $pdo->prepare("UPDATE tbl_product SET product = :product, category = :category, description = :description, stock = :stock, purchaseprice = :pprice, saleprice = :sprice, image = :image WHERE pid = $id");
-
-    $update->bindParam(':product', $product_txt);
-    $update->bindParam(':category', $category_txt);
-    $update->bindParam(':description', $description_txt); // Fix variable name here
-    $update->bindParam(':stock', $stock_txt);
-    $update->bindParam(':pprice', $purchase_Price_txt);
-    $update->bindParam(':sprice', $sale_Price_txt);
-    $update->bindParam(':image', $image_db);
-
-    if ($update->execute()) {
-        $statusMessage = "Product Updated Successfully"; // Updated status message
-        $statusCode = 'success';
-    } else {
-        $statusMessage = "Product Update Unsuccessful"; // Updated status message
-        $statusCode = 'error';
-    }
 
     $_SESSION['status'] = $statusMessage;
     $_SESSION['status_code'] = $statusCode;
@@ -75,20 +94,20 @@ if (isset($_POST['btneditproduct'])) {
 
 
 $select = $pdo->prepare("select * from tbl_product where pid=$id");
-$select -> execute();
+$select->execute();
 
-$row=$select->fetch(PDO::FETCH_ASSOC);
+$row = $select->fetch(PDO::FETCH_ASSOC);
 
 $id_db = $row['pid'];
 
-$barcode_db=$row['barcode'];
-$product_db=$row['product'];
-$category_db=$row['category'];
-$description_db=$row['description'];
-$stock_db=$row['stock'];
-$purchaseprice_db=$row['purchaseprice'];
-$saleprice_db=$row['saleprice'];
-$image_db=$row['image'];
+$barcode_db = $row['barcode'];
+$product_db = $row['product'];
+$category_db = $row['category'];
+$description_db = $row['description'];
+$stock_db = $row['stock'];
+$purchaseprice_db = $row['purchaseprice'];
+$saleprice_db = $row['saleprice'];
+$image_db = $row['image'];
 
 
 
@@ -130,18 +149,18 @@ $image_db=$row['image'];
 
                                         <div class="form-group">
                                             <label>Barcode</label>
-                                            <input type="text" class="form-control" value="<?php echo $barcode_db?>" placeholder="Enter Barcode" name="barcode" disabled>
+                                            <input type="text" class="form-control" value="<?php echo $barcode_db ?>" placeholder="Enter Barcode" name="barcode" disabled>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Product Name</label>
-                                            <input type="text" class="form-control" value="<?php echo $product_db?>" placeholder="Enter Product" name="product_name" required>
+                                            <input type="text" class="form-control" value="<?php echo $product_db ?>" placeholder="Enter Product" name="product_name" required>
                                         </div>
 
 
                                         <div class="form-group">
                                             <label>Category</label>
-                                            <select class="form-control" value="<?php echo $category_db_db?>" name="select_category" required>
+                                            <select class="form-control" value="<?php echo $category_db_db ?>" name="select_category" required>
                                                 <option value="" disabled selected>Select Category</option>
 
                                                 <?php
@@ -151,11 +170,11 @@ $image_db=$row['image'];
 
                                                 // Fetch the results and display them
                                                 while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
-                                                    if ($row['category']== $category_db){
-                                                    echo '<option selected="selected">' . htmlspecialchars($row['category']) . '</option>';
+                                                    if ($row['category'] == $category_db) {
+                                                        echo '<option selected="selected">' . htmlspecialchars($row['category']) . '</option>';
                                                     }
-                                                    if($row['category']!= $category_db)
-                                                    echo '<option>' . htmlspecialchars($row['category']) . '</option>';
+                                                    if ($row['category'] != $category_db)
+                                                        echo '<option>' . htmlspecialchars($row['category']) . '</option>';
                                                 }
                                                 ?>
                                             </select>
@@ -163,7 +182,7 @@ $image_db=$row['image'];
 
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control"  placeholder="Enter Description..." name="description" rows="8" required><?php echo $description_db?></textarea>
+                                            <textarea class="form-control" placeholder="Enter Description..." name="description" rows="8" required><?php echo $description_db ?></textarea>
                                         </div>
 
 
@@ -172,23 +191,23 @@ $image_db=$row['image'];
 
                                         <div class="form-group">
                                             <label>Stock Quantity</label>
-                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $stock_db?>" placeholder="Enter Quantity" name="numOf_Stock" required>
+                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $stock_db ?>" placeholder="Enter Quantity" name="numOf_Stock" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Purchase Price</label>
-                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $purchaseprice_db?>" placeholder="Enter Purchase Price" name="purchase_Price" required>
+                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $purchaseprice_db ?>" placeholder="Enter Purchase Price" name="purchase_Price" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Sale Price</label>
-                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $saleprice_db?>" placeholder="Enter Sale Price" name="sale_Price" required>
+                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $saleprice_db ?>" placeholder="Enter Sale Price" name="sale_Price" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Product Image</label>
                                             <br>
-                                            <image src"productimages/<?php echo $image_db?>" class="img-rounded" width="50px" height="50px"/>
+                                            <image src"productimages/<?php echo $image_db ?>" class="img-rounded" width="50px" height="50px" />
                                             <input type="file" class="input-group" name="product_image">
                                             <p>Upload Product Image</p>
                                         </div>

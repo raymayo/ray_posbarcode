@@ -68,7 +68,7 @@ include_once "header.php";
                                         <td>' .$row->stock. '</td>
                                         <td>' .$row->purchaseprice.'</td>
                                         <td>' .$row->saleprice.'</td>
-                                        <td><image src"productimages/'.$row->image.'" class="img-rounded" width="40px" height="40px/"></td>
+                                       <td><img src="../productimage/'.$row->image.'" class="img-rounded" width="40px" height="40px"></td>
                                         <td>
                                         <div class="btn-group">
 
