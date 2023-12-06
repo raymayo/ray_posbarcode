@@ -15,6 +15,7 @@ if ($_SESSION['role'] == 'Admin') {
 }
 
 include_once "header.php";
+include '../barcode/barcode128.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -61,7 +62,7 @@ include_once "header.php";
                   <ul class="list-group">
 
                   <center><p class="list-group-item list-group-item-info"><b>Product Details</b></p></center>
-                    <li class="list-group-item"><b>Barcode</b><span class="badge badge-info float-right">'.$row->barcode.'</span></li>
+                    <li class="list-group-item"><b>Barcode</b><span class="badge badge-info float-right">'.bar128($row->barcode).'</span></li>
                     <li class="list-group-item"><b>Product</b><span class="badge badge-warning float-right">'.$row->product.'</span></li>
                     <li class="list-group-item"><b>Category</b><span class="badge badge-info float-right">'.$row->category.'</span></li>
                     <li class="list-group-item"><b>Description</b><span class="badge badge-primary float-right">'.$row->description.'</span></li>
