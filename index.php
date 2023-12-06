@@ -78,7 +78,7 @@ if (isset($_POST['btn_login'])) {
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="./index2.html" class="h1"><b>POS</b>BARCODE</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="h1 main-title"><b>POS</b>BARCODE</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
@@ -107,7 +107,7 @@ if (isset($_POST['btn_login'])) {
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">
-                <a href="forgot-password.html">I forgot my password</a>
+                <!-- <a href="forgot-password.html">I forgot my password</a> -->
               </div>
             </div>
             <!-- /.col -->
@@ -194,3 +194,14 @@ HTML;
     unset($_SESSION['status']);
 }
 ?>
+
+<style>
+.main-title:hover{
+  color: #DDD;
+}
+
+.btn-primary{
+  color: white !important;
+  font-weight: 500;
+}
+</style>
