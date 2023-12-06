@@ -51,7 +51,7 @@ include_once"header.php";
 
 <style>
     .content-wrapper {
-        background-color: #151823 !important;
+        background-color: #050505 !important;
         color: white;
     }
 
@@ -60,28 +60,29 @@ include_once"header.php";
     }
 
     .btn-primary {
-        background-color: #5C3EF4 !important;
-        border: #5C3EF4 !important;
+        background-color: #7D4BDB !important;
+        border: #7D4BDB !important;
+        color: #050505;
     }
 
     .card-header{
-        border-bottom: 1px solid #272C3F !important;
+        border-bottom: 1px solid #242424 !important;
     }
 
     .card-outline {
-        border-color: #5C3EF4 !important;
+        border-color: #7D4BDB !important;
         border: none !important;
     }
 
     .card {
-        background-color: #151823 !important;
-        border: 1px solid #272C3F !important;
+        background-color: #050505 !important;
+        border: 1px solid #242424 !important;
         border-radius: 8px;
         color: white;
     }
 
     td{
-        border-bottom:1px solid #272C3F !important;
+        border-bottom:1px solid #242424 !important;
     }
 </style>
 
