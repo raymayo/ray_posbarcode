@@ -32,7 +32,7 @@
 
 
 .card-header b {
-    color: #7D4BDB;
+    color: #5C3EF4;
 }
 
 .card-outline {
@@ -50,7 +50,7 @@
 }
 
 .input-group-text {
-    background-color: #7D4BDB !important;
+    background-color: #5C3EF4 !important;
     border: 0px !important;
 }
 
@@ -63,8 +63,8 @@
 }
 
 .btn-primary {
-    background-color: #7D4BDB !important;
-    border: #7D4BDB !important;
+    background-color: #5C3EF4 !important;
+    border: #5C3EF4 !important;
     color: #050505 !important;
 } */
 
@@ -115,7 +115,7 @@ body {
 
 
 .card-header b {
-    color: #7D4BDB;
+    color: #5C3EF4;
 }
 
 .card-outline {
@@ -133,7 +133,7 @@ body {
 }
 
 .input-group-text {
-    background-color: #7D4BDB !important;
+    background-color: #5C3EF4 !important;
     border: 0px !important;
 }
 
@@ -146,7 +146,7 @@ body {
 }
 
 .btn-primary {
-    background-color: #7D4BDB !important;
-    border: #7D4BDB !important;
+    background-color: #5C3EF4 !important;
+    border: #5C3EF4 !important;
     color: #050505 !important;
 }

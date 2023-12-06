@@ -359,7 +359,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     .btn-sidebar{
-      background-color: #7D4BDB !important;
+      background-color: #5C3EF4 !important;
       border: none !important;
     }
      .main-sidebar .fa-search{
@@ -367,7 +367,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     .nav-icon{
-        color: #7D4BDB !important;
+        color: #5C3EF4 !important;
     }
 
     .navbar{

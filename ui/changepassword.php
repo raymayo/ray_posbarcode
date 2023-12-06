@@ -72,7 +72,7 @@ if (isset($_POST['btn_update'])) {
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Change Password</h1>
+          <!-- <h1 class="m-0">Change Password</h1> -->
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -148,21 +148,32 @@ if (isset($_POST['btn_update'])) {
     font-family: 'Poppins', sans-serif;
     }
 
+    .card *{
+          font-weight: 400 !important;
+    }
+
   .content-wrapper {
-    background-color: #151618 !important;
+    background-color: #050505 !important;
     color: white;
   }
 
   .card {
-    background-color: #222325 !important;
+    background-color: #050505 !important;
     border-radius: 8px;
     color: white;
+    border: solid 1px #242424 !important;
   }
 
   .card-header {
-    background-color: #5C3EF4 !important;
+    background-color: #050505 !important;
+    color: #5C3EF4 !important;
+    border-bottom: 1px solid #242424 !important;
     /* border-radius: 8px;
     color: white; */
+  }
+
+  .card-header h3{
+    font-weight: 600 !important;
   }
 
   .card-footer {

@@ -17,7 +17,7 @@ include_once "header.php";
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Product List</h1>
+                    <!-- <h1 class="m-0">Product List</h1> -->
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -37,6 +37,9 @@ include_once "header.php";
                 <div class="col-lg-12">
 
                     <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h5 class="m-0">Product List</h5>
+                        </div>
                         <div class="card-body">
                             <table class="table table-striped" id='table_product'>
                                 <thead>
@@ -72,13 +75,13 @@ include_once "header.php";
                                         <td>
                                         <div class="btn-group">
 
-                                        <a href="printbarcode.php?id=' . $row->pid . '" class="btn btn-primary btn-xs" role="button"><span class="fa fa-barcode" style="color:#fff" data-toggle="tooltip" title="Print Barcode"></span></a>
+                                        <a href="printbarcode.php?id=' . $row->pid . '" class="btn btn-primary btn-s" role="button"><span class="fa fa-barcode" style="color:#fff" data-toggle="tooltip" title="Print Barcode"></span></a>
                                         
-                                        <a href="viewproduct.php?id=' . $row->pid . '" class="btn btn-warning btn-xs" role="button"><span class="fa fa-eye" style="color:#fff" data-toggle="tooltip" title="View Product"></span></a>
+                                        <a href="viewproduct.php?id=' . $row->pid . '" class="btn btn-warning btn-s" role="button"><span class="fa fa-eye" style="color:#fff" data-toggle="tooltip" title="View Product"></span></a>
                                         
-                                        <a href="editproduct.php?id=' . $row->pid . '" class="btn btn-success btn-xs" role="button"><span class="fa fa-edit" style="color:#fff" data-toggle="tooltip" title="Edit Product"></span></a>
+                                        <a href="editproduct.php?id=' . $row->pid . '" class="btn btn-success btn-s" role="button"><span class="fa fa-edit" style="color:#fff" data-toggle="tooltip" title="Edit Product"></span></a>
                                         
-                                        <button id=' . $row->pid . ' class="btn btn-danger btn-xs btndelete"><span class="fa fa-trash-alt" style="color:#fff" data-toggle="tooltip" title="Delete Product"></span></button>
+                                        <button id=' . $row->pid . ' class="btn btn-danger btn-s btndelete"><span class="fa fa-trash-alt" style="color:#fff" data-toggle="tooltip" title="Delete Product"></span></button>
                                         </div>
                                         </td>
                                         </tr';
@@ -102,6 +105,10 @@ include_once "header.php";
 <style>
     * {
         font-family: 'Poppins', sans-serif;
+    }
+
+    .card-header h5{
+      color: #5C3EF4 !important;
     }
 
     .content-wrapper {
@@ -138,70 +145,65 @@ include_once "header.php";
         background-color: transparent !important;
     }
 
-    .btn-info {
-        background-color: transparent;
-        border-color: #F53D3D;
-        ;
-        color: #F53D3D;
+    .btn-primary{
+        background: none !important;
+        /* border: 1px solid #5C3EF4 !important; */
+        border: none !important;
     }
 
-    .btn-info:hover {
-        color: #151618;
-        background-color: #F53D3D;
-        border-color: #F53D3D;
+    .fa-barcode{
+        color: #5C3EF4 !important;
     }
 
-    .btn-info:active {
-        color: #151618 !important;
-        background-color: #F53D3D !important;
-        border-color: #F53D3D !important;
+
+    .btn-warning{
+        background: none !important;
+        /* border: 1px solid #F58D3D !important; */
+        border: none !important;
     }
 
-    .btn-info:focus {
-        background-color: transparent !important;
-        border-color: #F53D3D !important;
+    .fa-eye{
+        color: #F58D3D !important;
+    }
+
+    .btn-success{
+        background: none !important;
+        /* border: 1px solid #77DD66 !important; */
+        border: none !important;
+    }
+
+    .btn-success .fa-edit{
+        color: #77DD66 !important;
+    }
+
+    .btn-danger{
+        background: none !important;
+        /* border: 1px solid #F53D3D !important; */
+        border: none !important;
+    }
+
+    .fa-trash-alt{
         color: #F53D3D !important;
     }
 
-    .btn-warning {
-        background-color: transparent;
-        border-color: #F5AB3D;
-        color: #F5AB3D;
-    }
-
-    .btn-warning:hover {
-        color: #151618;
-        background-color: #F5AB3D;
-        border-color: #F5AB3D;
-    }
-
-    .btn-warning:active {
-        filter: brightness(0.5)
-    }
-
-    .btn-warning:focus {
-        background-color: transparent !important;
-        border-color: #F5AB3D !important;
-        color: #F5AB3D;
-    }
 
     .table td,
     .table th {
         /* background-color: #151618; */
-        border-top: 1px solid #2F3237 !important;
+        border-top: 1px solid #242424 !important;
     }
 
 
     tbody tr:nth-child(even) {
-        background-color: #151618 !important;
+        background-color: #0D0D0D !important;
     }
 
     tbody tr:nth-child(odd) {
-        background-color: #1A1C1E !important;
+        background-color: #050505 !important;
     }
 
     thead {
-        background-color: #151618 !important;
+        background-color: #0D0D0D !important;
     }
 
     tr {
@@ -209,7 +211,7 @@ include_once "header.php";
     }
 
     td {
-        width: 1000px !important;
+        width: 200px !important;
     }
 
     /* .page-link {
@@ -217,8 +219,9 @@ include_once "header.php";
     } */
 
     .page-item.disabled .page-link {
-        background-color: #151618;
+        background-color: #050505;
         border-color: #151618;
+        border: solid 1px #242424;
     }
 
     .page-item.active .page-link {
@@ -227,11 +230,17 @@ include_once "header.php";
 
     }
 
+
     .page-link {
         background-color: #151618;
         border-color: #151618;
-        color: #5C3EF4;
+        font-weight: 600 !important;
 
+    }
+
+    #table_product_previous{
+        color:#5C3EF4 !important;
+        font-weight: 600 !important;
     }
 
     .page-link:hover {
@@ -242,6 +251,10 @@ include_once "header.php";
 
     .wrapper {
         background-color: #151618;
+    }
+
+    .btn-group{
+        gap: 5px;
     }
 
 

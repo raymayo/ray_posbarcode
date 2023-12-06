@@ -16,7 +16,7 @@ include_once "header.php";
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Admin Dashboard</h1>
+          <!-- <h1 class="m-0">Admin Dashboard</h1> -->
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -74,9 +74,9 @@ include_once "header.php";
     }
 
     .btn-primary {
-        background-color: #D6A78D !important;
-        border: #D6A78D !important;
-        color: #050505 !important;
+        background-color: #5C3EF4 !important;
+        border: #5C3EF4 !important;
+        font-weight: 500;
     }
 
     .card-header{
@@ -93,6 +93,10 @@ include_once "header.php";
         border: 1px solid #272C3F !important;
         border-radius: 8px;
         color: white;
+    }
+
+    .card-header h5{
+      color: #5C3EF4 !important;
     }
 
 

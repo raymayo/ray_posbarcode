@@ -102,7 +102,7 @@ if(isset($_POST['btn_delete'])){
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Category</h1>
+                    <!-- <h1 class="m-0">Category</h1> -->
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -235,17 +235,18 @@ if(isset($_POST['btn_delete'])){
 }
 
  .content-wrapper {
-        background-color: #151823 !important;
+        background-color: #050505 !important;
         color: white;
     }
 
     .content {
-        color: #151618;
+        color: #050505;
     }
 
     .btn-primary {
         background-color: #5C3EF4 !important;
         border: #5C3EF4 !important;
+        font-weight: 500;
     }
 
     .card-header{
@@ -257,8 +258,12 @@ if(isset($_POST['btn_delete'])){
         border: none !important;
     }
 
+        .card-header h5{
+      color: #5C3EF4 !important;
+    }
+
     .card {
-        background-color: #151823 !important;
+        background-color: #050505 !important;
         border: 1px solid #272C3F !important;
         border-radius: 8px;
         color: white;
@@ -276,13 +281,13 @@ if(isset($_POST['btn_delete'])){
     }
 
     .btn-info:hover {
-        color: #151618;
+        color: #050505;
         background-color: #F53D3D;
         border-color: #F53D3D;
     }
 
     .btn-info:active {
-        color: #151618 !important;
+        color: #050505 !important;
         background-color: #F53D3D !important;
         border-color: #F53D3D !important;
     }
@@ -300,7 +305,7 @@ if(isset($_POST['btn_delete'])){
     }
 
     .btn-warning:hover {
-        color: #151618;
+        color: #050505;
         background-color: #F5AB3D;
         border-color: #F5AB3D;
     }
@@ -317,21 +322,21 @@ if(isset($_POST['btn_delete'])){
 
     .table td,
     .table th {
-        /* background-color: #151618; */
-        border-top: 1px solid #2F3237 !important;
+        /* background-color: #050505; */
+        border-top: 1px solid #242424 !important;
     }
 
 
     tbody tr:nth-child(even) {
-        background-color: #151618 !important;
+        background-color: #0D0D0D !important;
     }
 
     tbody tr:nth-child(odd) {
-        background-color: #1A1C1E !important;
+        background-color: #050505 !important;
     }
 
     thead {
-        background-color: #151618 !important;
+        background-color: #0D0D0D !important;
     }
 
     tr {
@@ -343,8 +348,9 @@ if(isset($_POST['btn_delete'])){
     } */
 
     .page-item.disabled .page-link{
-        background-color: #151618;
-        border-color: #151618;
+        background-color: #050505;
+        border-color: #050505;
+        border:solid 1px #242424;
     }
 
     .page-item.active .page-link {
@@ -354,9 +360,10 @@ if(isset($_POST['btn_delete'])){
     }
 
     .page-link{
-        background-color: #151618; 
-        border-color: #151618;
+        background-color: #050505; 
+        border-color: #050505;
         color: #5C3EF4;
+        border:solid 1px #242424;
 
     }
 
@@ -367,7 +374,7 @@ if(isset($_POST['btn_delete'])){
     }
 
     .wrapper{
-        background-color: #151618 ;
+        background-color: #050505 ;
     }
     
 

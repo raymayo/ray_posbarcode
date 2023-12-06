@@ -97,6 +97,12 @@ include_once "headeruser.php";
 
 
 <style>
+
+      .card-header h5{
+      color: #5C3EF4 !important;
+    }
+
+    
   .content-wrapper{
     background-color: #151618 !important; 
     color: white;

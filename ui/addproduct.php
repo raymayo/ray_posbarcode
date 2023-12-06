@@ -120,7 +120,7 @@ if (isset($_POST['btn_save'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Add Product</h1>
+                    <!-- <h1 class="m-0">Add Product</h1> -->
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -234,14 +234,18 @@ if (isset($_POST['btn_save'])) {
       * {
     font-family: 'Poppins', sans-serif;
     }
+
+    .card-header h5{
+      color: #5C3EF4 !important;
+    }
     
     .content-wrapper {
-        background-color: #151618 !important;
+        background-color: #050505 !important;
         color: white;
     }
 
     .content {
-        color: #151618;
+        color: #050505;
     }
 
     .btn-primary {
@@ -250,13 +254,14 @@ if (isset($_POST['btn_save'])) {
     }
 
     .card-outline {
-        border-color: #5C3EF4 !important;
+        border: none !important;
     }
 
     .card {
-        background-color: #222325 !important;
+        background-color: #050505 !important;
         border-radius: 8px;
         color: white;
+        border: 1px solid #242424 !important;
     }
 
     .card-footer {
