@@ -324,6 +324,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <style>
 
+      * {
+    font-family: 'Poppins', sans-serif;
+  }
+
 
     .main-sidebar{
     background-color: #0D0D0D !important;

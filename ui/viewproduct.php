@@ -39,7 +39,16 @@ include_once "header.php";
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">
-      <div class="row">
+
+    <?php
+    $id = $_GET['id'];
+
+    $select = $pdo -> prepare("select * from tbl_product where pid = $id");
+    $select -> execute();
+
+    while($row=$select->fetch((PDO::FETCH_OBJ))){
+      echo'
+       <div class="row">
         <div class="col-lg-12">
 
           <div class="card card-info card-outline">
@@ -53,9 +62,13 @@ include_once "header.php";
                   <ul class="list-group">
 
                   <center><p class="list-group-item list-group-item-info"><b>PRODUCT DETAILS</b></p></center>
-                    <li class="list-group-item">New <span class="badge">12</span></li>
-                    <li class="list-group-item">Deleted <span class="badge">5</span></li>
-                    <li class="list-group-item">Warnings <span class="badge">3</span></li>
+                    <li class="list-group-item">Barcode<span class="badge badge-info float-right">'.$row->pid.'</span></li>
+                    <li class="list-group-item">Product<span class="badge badge-warning float-right">'.$row->product.'</span></li>
+                    <li class="list-group-item">Category<span class="badge badge-success float-right">'.$row->category.'</span></li>
+                    <li class="list-group-item">Description<span class="badge badge-primary float-right">'.$row->description.'</span></li>
+                    <li class="list-group-item">Stock<span class="badge badge-danger float-right">'.$row->stock.'</span></li>
+                    <li class="list-group-item">Purchase Price<span class="badge badge-secondary float-right">'.$row->purchaseprice.'</span></li>
+                    <li class="list-group-item">Sale Price<span class="badge badge-dark float-right">'.$row->saleprice.'</span></li>
                   </ul>
 
                 </div>
@@ -63,7 +76,7 @@ include_once "header.php";
                 <div class="col-md-6">
 
                   <ul class="list-group">
-                  <center><p class="list-group-item list-group-item-info"><b>PRODUCT DETAILS</b></p></center>
+                  <center><p class="list-group-item list-group-item-info"><b>PRODUCT IMAGE</b></p></center>
                     <li class="list-group-item">New <span class="badge">12</span></li>
                     <li class="list-group-item">Deleted <span class="badge">5</span></li>
                     <li class="list-group-item">Warnings <span class="badge">3</span></li>
@@ -78,6 +91,11 @@ include_once "header.php";
         </div>
         <!-- /.col-md-6 -->
       </div>
+      ';
+    }
+    ?>
+
+  
       <!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
@@ -86,8 +104,11 @@ include_once "header.php";
 <!-- /.content-wrapper -->
 
 <style>
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
   .content-wrapper {
-    background-color: #151823 !important;
+    background-color: #050505 !important;
     color: white;
   }
 
@@ -101,7 +122,7 @@ include_once "header.php";
   }
 
   .card-header {
-    border-bottom: 1px solid #272C3F !important;
+    border-bottom: 1px solid #242424 !important;
   }
 
   .card-outline {
@@ -110,14 +131,16 @@ include_once "header.php";
   }
 
   .card {
-    background-color: #151823 !important;
-    border: 1px solid #272C3F !important;
+    background-color: #050505 !important;
+    border: 1px solid #242424 !important;
     border-radius: 8px;
     color: white;
   }
 
   .list-group-item {
-    background-color: red !important;
+    background-color: #050505 !important;
+    border: 1px solid #242424 !important;
+    color: white;
   }
 </style>
 

@@ -53,12 +53,12 @@
   <style>
 
 footer{
-  background-color: #151823 !important;
-  border-color: #272C3F !important;
+  background-color: #0D0D0D !important;
+  border-color: #242424 !important;
 }
 
 footer a{
-  color: #D6A78D !important;
+  color: #7D4BDB!important;
 
 }
 
