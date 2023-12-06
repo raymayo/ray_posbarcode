@@ -3,7 +3,7 @@ include_once "connectdb.php";
 session_start();
 
 if ($_SESSION['useremail'] == '') {
-  header('location:../index.php');
+    header('location:../index.php');
 }
 
 
@@ -61,24 +61,24 @@ include_once "header.php";
                                     while ($row = $select->fetch(PDO::FETCH_OBJ)) {
                                         echo '
                                         <tr>
-                                        <td>' .$row->barcode.'</td>
-                                        <td>' .$row->product.'</td>
-                                        <td>' .$row->category.'</td>
-                                        <td>' .$row->description.'</td>
-                                        <td>' .$row->stock. '</td>
-                                        <td>' .$row->purchaseprice.'</td>
-                                        <td>' .$row->saleprice.'</td>
-                                       <td><img src="../productimage/'.$row->image.'" class="img-rounded" width="40px" height="40px"></td>
+                                        <td>' . $row->barcode . '</td>
+                                        <td>' . $row->product . '</td>
+                                        <td>' . $row->category . '</td>
+                                        <td>' . $row->description . '</td>
+                                        <td>' . $row->stock . '</td>
+                                        <td>' . $row->purchaseprice . '</td>
+                                        <td>' . $row->saleprice . '</td>
+                                       <td><img src="../productimage/' . $row->image . '" class="img-rounded" width="40px" height="40px"></td>
                                         <td>
                                         <div class="btn-group">
 
-                                        <a href="printbarcode.php?id='.$row->pid.'" class="btn btn-primary btn-xs" role="button"><span class="fa fa-barcode" style="color:#fff" data-toggle="tooltip" title="Print Barcode"></span></a>
+                                        <a href="printbarcode.php?id=' . $row->pid . '" class="btn btn-primary btn-xs" role="button"><span class="fa fa-barcode" style="color:#fff" data-toggle="tooltip" title="Print Barcode"></span></a>
                                         
-                                        <a href="viewproduct.php?id='.$row->pid.'" class="btn btn-warning btn-xs" role="button"><span class="fa fa-eye" style="color:#fff" data-toggle="tooltip" title="View Product"></span></a>
+                                        <a href="viewproduct.php?id=' . $row->pid . '" class="btn btn-warning btn-xs" role="button"><span class="fa fa-eye" style="color:#fff" data-toggle="tooltip" title="View Product"></span></a>
                                         
-                                        <a href="editproduct.php?id='.$row->pid.'" class="btn btn-success btn-xs" role="button"><span class="fa fa-edit" style="color:#fff" data-toggle="tooltip" title="Edit Product"></span></a>
+                                        <a href="editproduct.php?id=' . $row->pid . '" class="btn btn-success btn-xs" role="button"><span class="fa fa-edit" style="color:#fff" data-toggle="tooltip" title="Edit Product"></span></a>
                                         
-                                        <button id='.$row->pid.' class="btn btn-danger btn-xs"><span class="fa fa-trash-alt" style="color:#fff" data-toggle="tooltip" title="Delete Product"></span></button>
+                                        <button id=' . $row->pid . ' class="btn btn-danger btn-xs btndelete"><span class="fa fa-trash-alt" style="color:#fff" data-toggle="tooltip" title="Delete Product"></span></button>
                                         </div>
                                         </td>
                                         </tr';
@@ -100,12 +100,11 @@ include_once "header.php";
 <!-- /.content-wrapper -->
 
 <style>
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
 
-* {
-    font-family: 'Poppins', sans-serif;
-}
-
- .content-wrapper {
+    .content-wrapper {
         background-color: #050505 !important;
         color: white;
     }
@@ -119,7 +118,7 @@ include_once "header.php";
         border: #5C3EF4 !important;
     }
 
-    .card-header{
+    .card-header {
         border-bottom: 1px solid #272C3F !important;
     }
 
@@ -209,7 +208,7 @@ include_once "header.php";
         border-radius: 8px !important;
     }
 
-    td{
+    td {
         width: 1000px !important;
     }
 
@@ -217,34 +216,34 @@ include_once "header.php";
         background-color: red;
     } */
 
-    .page-item.disabled .page-link{
+    .page-item.disabled .page-link {
         background-color: #151618;
         border-color: #151618;
     }
 
     .page-item.active .page-link {
-        background-color: #5C3EF4; 
+        background-color: #5C3EF4;
         border-color: #5C3EF4;
 
     }
 
-    .page-link{
-        background-color: #151618; 
+    .page-link {
+        background-color: #151618;
         border-color: #151618;
         color: #5C3EF4;
 
     }
 
-    .page-link:hover{
-        background-color: #1E2022; 
+    .page-link:hover {
+        background-color: #1E2022;
         border-color: #1E2022;
         color: #5C3EF4;
     }
 
-    .wrapper{
-        background-color: #151618 ;
+    .wrapper {
+        background-color: #151618;
     }
-    
+
 
 
 
@@ -281,17 +280,62 @@ include_once "footer.php";
 ?>
 
 <script>
-  $(document).ready(function () {
-            $('#table_product').DataTable({
-                "lengthMenu": [8, 16, 24],
-                "pageLength": 5,
-                // responsive: true 
-            });
+    $(document).ready(function() {
+        $('#table_product').DataTable({
+            "lengthMenu": [8, 16, 24],
+            "pageLength": 5,
+            // responsive: true 
         });
+    });
 </script>
 
 <script>
-   $(document).ready(function (){
-       $('[data-toggle="tooltip"]').tooltip();
-}) ;
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 </script>
+
+<script>
+    $(document).ready(function () {
+        $('.btndelete').click(function () {
+            var tdt = $(this);
+            var id = $(this).attr('id');
+
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                if (result.isConfirmed) {
+
+                    
+                    $.ajax({
+                        url: 'productdelete.php',
+                        type: "POST",
+                        data: {
+                            pidd: id
+                        },
+                        success: function (data) {
+                            tdt.parents('tr').hide(); // Corrected variable name to tdt
+                        }
+                    });
+
+                    Swal.fire({
+                    title: "Deleted!",
+                    text: "Product has been deleted.",
+                    icon: "success"
+                    });
+                }
+                });
+
+        });
+    });
+</script>
+
+
+
