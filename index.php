@@ -78,7 +78,8 @@ if (isset($_POST['btn_login'])) {
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="h1 main-title"><b>POS</b>BARCODE</a>
+        <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="h1 main-title"><b>POS</b>BARCODE</a> -->
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="h1 main-title"><b>💜</b>💜💜</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>

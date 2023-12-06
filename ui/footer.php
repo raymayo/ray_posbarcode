@@ -12,10 +12,11 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      CC-114
+      <a href="https://media.tenor.com/8Q63OKTWlNAAAAAC/cute-boys.gif" target="_blank">💜💜💜</a>
     </div>
     <!-- Default to the left -->
-    <strong>BY: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">JOHN RAY ORMILLADA</a>.</strong> POS BARCODE INVENTORY SYSTEM V2.0
+    <strong>BY: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">JOHN RAY ORMILLADA</a></strong>
+
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -58,7 +59,7 @@ footer{
 }
 
 footer a{
-  color: #7D4BDB!important;
+  color: #5C3EF4 !important;
 
 }
 
