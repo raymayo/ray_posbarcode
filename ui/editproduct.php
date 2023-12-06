@@ -35,9 +35,8 @@ $image_db=$row['image'];
 
 
 
-if (isset($_POST['btn_save'])) {
+if (isset($_POST['btneditproduct'])) {
 
-    $barcode_txt = $_POST['barcode'];
     $product_txt = $_POST['product_name'];
     $category_txt = $_POST['select_category'];
     $description_txt = $_POST['description'];
@@ -45,16 +44,52 @@ if (isset($_POST['btn_save'])) {
     $purchase_Price_txt = $_POST['purchase_Price'];
     $sale_Price_txt = $_POST['sale_Price'];
 
-
-
     $f_name = $_FILES['product_image']['name'];
 
-    if(!empty($f_name)){
-
-    }else{
-        
+    if (!empty($f_name)) {
+        // Handle file upload here if needed
+        $image_db = "path/to/uploaded/image"; // Replace this with your logic for handling the uploaded image
     }
+
+    $update = $pdo->prepare("UPDATE tbl_product SET product = :product, category = :category, description = :description, stock = :stock, purchaseprice = :pprice, saleprice = :sprice, image = :image WHERE pid = $id");
+
+    $update->bindParam(':product', $product_txt);
+    $update->bindParam(':category', $category_txt);
+    $update->bindParam(':description', $description_txt); // Fix variable name here
+    $update->bindParam(':stock', $stock_txt);
+    $update->bindParam(':pprice', $purchase_Price_txt);
+    $update->bindParam(':sprice', $sale_Price_txt);
+    $update->bindParam(':image', $image_db);
+
+    if ($update->execute()) {
+        $statusMessage = "Product Updated Successfully"; // Updated status message
+        $statusCode = 'success';
+    } else {
+        $statusMessage = "Product Update Unsuccessful"; // Updated status message
+        $statusCode = 'error';
+    }
+
+    $_SESSION['status'] = $statusMessage;
+    $_SESSION['status_code'] = $statusCode;
 }
+
+
+$select = $pdo->prepare("select * from tbl_product where pid=$id");
+$select -> execute();
+
+$row=$select->fetch(PDO::FETCH_ASSOC);
+
+$id_db = $row['pid'];
+
+$barcode_db=$row['barcode'];
+$product_db=$row['product'];
+$category_db=$row['category'];
+$description_db=$row['description'];
+$stock_db=$row['stock'];
+$purchaseprice_db=$row['purchaseprice'];
+$saleprice_db=$row['saleprice'];
+$image_db=$row['image'];
+
 
 
 ?>
@@ -154,7 +189,7 @@ if (isset($_POST['btn_save'])) {
                                             <label>Product Image</label>
                                             <br>
                                             <image src"productimages/<?php echo $image_db?>" class="img-rounded" width="50px" height="50px"/>
-                                            <input type="file" class="input-group" name="product_image" required>
+                                            <input type="file" class="input-group" name="product_image">
                                             <p>Upload Product Image</p>
                                         </div>
 
@@ -229,4 +264,23 @@ if (isset($_POST['btn_save'])) {
 
 <?php
 include_once "footer.php";
+?>
+
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] !== '') {
+    $icon = $_SESSION['status_code'];
+    $message = $_SESSION['status'];
+
+    // Output JavaScript directly with values from PHP variables
+    echo <<<HTML
+    <script>
+            Swal.fire({
+                icon: '{$icon}',
+                title: '{$message}'
+            });
+    </script>
+HTML;
+
+    unset($_SESSION['status']);
+}
 ?>
