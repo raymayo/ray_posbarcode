@@ -229,7 +229,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item">
-              <a href="addproduct.php" class="nav-link">
+              <a href="productlist.php" class="nav-link">
                 <i class="nav-icon fas fa-list-ul"></i>
                 <p>
                   Product List
