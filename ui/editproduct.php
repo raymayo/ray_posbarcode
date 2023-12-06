@@ -18,6 +18,43 @@ $row=$select->fetch(PDO::FETCH_ASSOC);
 
 $id_db = $row['pid'];
 
+$barcode_db=$row['barcode'];
+$product_db=$row['product'];
+$category_db=$row['category'];
+$description_db=$row['description'];
+$stock_db=$row['stock'];
+$purchaseprice_db=$row['purchaseprice'];
+$saleprice_db=$row['saleprice'];
+$image_db=$row['image'];
+
+// print_r($row);
+
+
+
+
+
+
+
+if (isset($_POST['btn_save'])) {
+
+    $barcode_txt = $_POST['barcode'];
+    $product_txt = $_POST['product_name'];
+    $category_txt = $_POST['select_category'];
+    $description_txt = $_POST['description'];
+    $stock_txt = $_POST['numOf_Stock'];
+    $purchase_Price_txt = $_POST['purchase_Price'];
+    $sale_Price_txt = $_POST['sale_Price'];
+
+
+
+    $f_name = $_FILES['product_image']['name'];
+
+    if(!empty($f_name)){
+
+    }else{
+        
+    }
+}
 
 
 ?>
@@ -58,18 +95,18 @@ $id_db = $row['pid'];
 
                                         <div class="form-group">
                                             <label>Barcode</label>
-                                            <input type="text" class="form-control" placeholder="Enter Barcode" name="barcode">
+                                            <input type="text" class="form-control" value="<?php echo $barcode_db?>" placeholder="Enter Barcode" name="barcode" disabled>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Product Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter Product" name="product_name" required>
+                                            <input type="text" class="form-control" value="<?php echo $product_db?>" placeholder="Enter Product" name="product_name" required>
                                         </div>
 
 
                                         <div class="form-group">
                                             <label>Category</label>
-                                            <select class="form-control" name="select_category" required>
+                                            <select class="form-control" value="<?php echo $category_db_db?>" name="select_category" required>
                                                 <option value="" disabled selected>Select Category</option>
 
                                                 <?php
@@ -79,6 +116,10 @@ $id_db = $row['pid'];
 
                                                 // Fetch the results and display them
                                                 while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+                                                    if ($row['category']== $category_db){
+                                                    echo '<option selected="selected">' . htmlspecialchars($row['category']) . '</option>';
+                                                    }
+                                                    if($row['category']!= $category_db)
                                                     echo '<option>' . htmlspecialchars($row['category']) . '</option>';
                                                 }
                                                 ?>
@@ -87,7 +128,7 @@ $id_db = $row['pid'];
 
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" placeholder="Enter Description..." name="description" rows="8" required></textarea>
+                                            <textarea class="form-control"  placeholder="Enter Description..." name="description" rows="8" required><?php echo $description_db?></textarea>
                                         </div>
 
 
@@ -96,21 +137,23 @@ $id_db = $row['pid'];
 
                                         <div class="form-group">
                                             <label>Stock Quantity</label>
-                                            <input type="number" min="1" step="any" class="form-control" placeholder="Enter Quantity" name="numOf_Stock" required>
+                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $stock_db?>" placeholder="Enter Quantity" name="numOf_Stock" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Purchase Price</label>
-                                            <input type="number" min="1" step="any" class="form-control" placeholder="Enter Purchase Price" name="purchase_Price" required>
+                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $purchaseprice_db?>" placeholder="Enter Purchase Price" name="purchase_Price" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Sale Price</label>
-                                            <input type="number" min="1" step="any" class="form-control" placeholder="Enter Sale Price" name="sale_Price" required>
+                                            <input type="number" min="1" step="any" class="form-control" value="<?php echo $saleprice_db?>" placeholder="Enter Sale Price" name="sale_Price" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Product Image</label>
+                                            <br>
+                                            <image src"productimages/<?php echo $image_db?>" class="img-rounded" width="50px" height="50px"/>
                                             <input type="file" class="input-group" name="product_image" required>
                                             <p>Upload Product Image</p>
                                         </div>
@@ -122,7 +165,7 @@ $id_db = $row['pid'];
                             </div>
                             <div class="card-footer">
                                 <div class="text-center p-2">
-                                    <button type="submit" class="btn btn-primary" name="btneditproduct">Edit Product</button>
+                                    <button type="submit" class="btn btn-primary" name="btneditproduct">Update Product</button>
                                 </div>
                             </div>
                         </form>
