@@ -326,13 +326,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
     .main-sidebar{
-    background-color: #151823 !important;
-    box-shadow: none !important;
-    border-right: 1px solid #272C3F !important;
+    background-color: #0D0D0D !important;
+    box-shadow:#000000 0px 1px 2px 0px, #000000 0px 1px 3px 1px !important;
+    border-right: 1px solid #242424 !important;
     }
 
     .brand-link {
-    border-bottom: 1px solid #272C3F !important;
+    border-bottom: 1px solid #242424 !important;
     }
 
     .main-sidebar a{
@@ -340,13 +340,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     .user-panel{
-    border-bottom: 1px solid #272C3F !important;
+    border-bottom: 1px solid #242424 !important;
     }
 
     .form-control{
-    background-color: #1B1E29 !important;
+    background-color: #050505 !important;
     color: white !important;
-    border: 0px !important;
+    border: 1px solid #242424 !important;
     }
 
     .input-group-text{
@@ -355,20 +355,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     .btn-sidebar{
-      background-color: #D6A78D !important;
+      background-color: #7D4BDB !important;
       border: none !important;
     }
      .main-sidebar .fa-search{
-      color: #272C3F !important;
+      color: #0D0D0D !important;
     }
 
     .nav-icon{
-        color: #D6A78D !important;
+        color: #7D4BDB !important;
     }
 
     .navbar{
-      background-color: #151823 !important;
-      border-color: #272C3F !important;
+      background-color: #0D0D0D !important;
+      border-color: #242424 !important;
     }
 
     .navbar a{

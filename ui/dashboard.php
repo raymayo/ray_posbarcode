@@ -65,7 +65,7 @@ include_once "header.php";
 }
 
  .content-wrapper {
-        background-color: #151823 !important;
+        background-color: #050505 !important;
         color: white;
     }
 
@@ -76,7 +76,7 @@ include_once "header.php";
     .btn-primary {
         background-color: #D6A78D !important;
         border: #D6A78D !important;
-        color: #151823 !important;
+        color: #050505 !important;
     }
 
     .card-header{
@@ -89,7 +89,7 @@ include_once "header.php";
     }
 
     .card {
-        background-color: #151823 !important;
+        background-color: #050505 !important;
         border: 1px solid #272C3F !important;
         border-radius: 8px;
         color: white;

@@ -1,0 +1,151 @@
+/* body {
+    background-color: #050505 !important;
+}
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    background-color: #222325 !important;
+    border-radius: 8px !important;
+    border: solid 1px #191C27 !important;
+
+}
+
+.card-primary {
+    background-color: red !important;
+    box-shadow: none !important;
+}
+
+.card-body {
+    background-color: #050505 !important;
+    box-shadow: none !important;
+}
+
+.card-header {
+    background-color: #050505 !important;
+    color: #fff;
+    border-bottom: 1px solid #272C3F !important;
+}
+
+
+.card-header b {
+    color: #7D4BDB;
+}
+
+.card-outline {
+    border-color: #272C3F !important;
+}
+
+.login-box-msg {
+    color: #979BA6 !important;
+}
+
+.form-control {
+    background-color: #272C3F !important;
+    color: white !important;
+    border: 0px !important;
+}
+
+.input-group-text {
+    background-color: #7D4BDB !important;
+    border: 0px !important;
+}
+
+.fas {
+    color: #050505 !important;
+}
+
+.icheck-primary a {
+    color: white !important;
+}
+
+.btn-primary {
+    background-color: #7D4BDB !important;
+    border: #7D4BDB !important;
+    color: #050505 !important;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: #050505 !important;
+}
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    background-color: #222325 !important;
+}
+
+.card-primary {
+    box-shadow: none !important;
+}
+
+.card-body {
+    background-color: #050505 !important;
+    box-shadow: none !important;
+}
+
+.card-header {
+    background-color: #050505 !important;
+    color: #fff;
+    border-bottom: 1px solid #272C3F !important;
+}
+
+
+.card-header b {
+    color: #7D4BDB;
+}
+
+.card-outline {
+    border: solid 1px #242424 !important;
+}
+
+.login-box-msg {
+    color: #979BA6 !important;
+}
+
+.form-control {
+    background-color: #050505 !important;
+    color: white !important;
+    border: 1px solid #242424 !important;
+}
+
+.input-group-text {
+    background-color: #7D4BDB !important;
+    border: 0px !important;
+}
+
+.fas {
+    color: #050505 !important;
+}
+
+.icheck-primary a {
+    color: white !important;
+}
+
+.btn-primary {
+    background-color: #7D4BDB !important;
+    border: #7D4BDB !important;
+    color: #050505 !important;
+}
