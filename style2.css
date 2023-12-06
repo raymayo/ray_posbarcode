@@ -1,0 +1,69 @@
+body {
+    background-color: #151823 !important;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    background-color: #222325 !important;
+    border-radius: 8px !important;
+    border: solid 1px #191C27 !important;
+
+}
+
+.card-primary {
+    background-color: red !important;
+    box-shadow: none !important;
+}
+
+.card-body {
+    background-color: #151823 !important;
+    /* border-radius: 8px !important; */
+    box-shadow: none !important;
+}
+
+.card-header {
+    background-color: #151823 !important;
+    color: #fff;
+    border-bottom: 1px solid #272C3F !important;
+}
+
+
+.card-header b {
+    color: #D6A78D;
+}
+
+.card-outline {
+    border-color: #272C3F !important;
+}
+
+.login-box-msg {
+    color: #979BA6 !important;
+}
+
+.form-control {
+    background-color: #272C3F !important;
+    color: white !important;
+    border: 0px !important;
+}
+
+.input-group-text {
+    background-color: #D6A78D !important;
+    border: 0px !important;
+}
+
+.fas {
+    color: #151823 !important;
+}
+
+.icheck-primary a {
+    color: white !important;
+}
+
+.btn-primary {
+    background-color: #D6A78D !important;
+    border: #D6A78D !important;
+    color: #151823 !important;
+}

@@ -144,6 +144,10 @@ if (isset($_POST['btn_update'])) {
 
 
 <style>
+    * {
+    font-family: 'Poppins', sans-serif;
+    }
+
   .content-wrapper {
     background-color: #151618 !important;
     color: white;

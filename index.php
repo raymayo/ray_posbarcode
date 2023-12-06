@@ -68,8 +68,9 @@ if (isset($_POST['btn_login'])) {
   <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
 
   <!-- Theme style -->
+  <link rel="stylesheet" href="./style2.css">
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="./style.css">k
+
 </head>
 
 <body class="hold-transition login-page">

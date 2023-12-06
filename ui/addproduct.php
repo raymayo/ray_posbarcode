@@ -230,6 +230,11 @@ if (isset($_POST['btn_save'])) {
 <!-- /.content-wrapper -->
 
 <style>
+
+      * {
+    font-family: 'Poppins', sans-serif;
+    }
+    
     .content-wrapper {
         background-color: #151618 !important;
         color: white;

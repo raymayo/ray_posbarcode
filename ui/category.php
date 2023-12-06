@@ -3,6 +3,10 @@
 include_once "connectdb.php";
 session_start();
 
+if ($_SESSION['useremail'] == '') {
+  header('location:../index.php');
+}
+
 include_once "header.php";
 
 
@@ -225,6 +229,11 @@ if(isset($_POST['btn_delete'])){
 <!-- /.content-wrapper -->
 
 <style>
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
  .content-wrapper {
         background-color: #151823 !important;
         color: white;

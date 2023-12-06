@@ -60,6 +60,10 @@ include_once "header.php";
 
 <style>
 
+  * {
+    font-family: 'Poppins', sans-serif;
+}
+
  .content-wrapper {
         background-color: #151823 !important;
         color: white;
@@ -70,8 +74,9 @@ include_once "header.php";
     }
 
     .btn-primary {
-        background-color: #5C3EF4 !important;
-        border: #5C3EF4 !important;
+        background-color: #D6A78D !important;
+        border: #D6A78D !important;
+        color: #151823 !important;
     }
 
     .card-header{
