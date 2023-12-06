@@ -23,7 +23,6 @@ include_once "header.php";
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Blank Dashboard</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -61,14 +60,15 @@ include_once "header.php";
 
                   <ul class="list-group">
 
-                  <center><p class="list-group-item list-group-item-info"><b>PRODUCT DETAILS</b></p></center>
-                    <li class="list-group-item">Barcode<span class="badge badge-info float-right">'.$row->pid.'</span></li>
-                    <li class="list-group-item">Product<span class="badge badge-warning float-right">'.$row->product.'</span></li>
-                    <li class="list-group-item">Category<span class="badge badge-success float-right">'.$row->category.'</span></li>
-                    <li class="list-group-item">Description<span class="badge badge-primary float-right">'.$row->description.'</span></li>
-                    <li class="list-group-item">Stock<span class="badge badge-danger float-right">'.$row->stock.'</span></li>
-                    <li class="list-group-item">Purchase Price<span class="badge badge-secondary float-right">'.$row->purchaseprice.'</span></li>
-                    <li class="list-group-item">Sale Price<span class="badge badge-dark float-right">'.$row->saleprice.'</span></li>
+                  <center><p class="list-group-item list-group-item-info"><b>Product Details</b></p></center>
+                    <li class="list-group-item"><b>Barcode</b><span class="badge badge-info float-right">'.$row->barcode.'</span></li>
+                    <li class="list-group-item"><b>Product</b><span class="badge badge-warning float-right">'.$row->product.'</span></li>
+                    <li class="list-group-item"><b>Category</b><span class="badge badge-info float-right">'.$row->category.'</span></li>
+                    <li class="list-group-item"><b>Description</b><span class="badge badge-primary float-right">'.$row->description.'</span></li>
+                    <li class="list-group-item"><b>Stock</b><span class="badge badge-danger float-right">'.$row->stock.'</span></li>
+                    <li class="list-group-item"><b>Purchase Price</b><span class="badge badge-success float-right">$'.$row->purchaseprice.'</span></li>
+                    <li class="list-group-item"><b>Sale Price</b><span class="badge badge-success float-right">$'.$row->saleprice.'</span></li>
+                    <li class="list-group-item"><b>Product Profit</b><span class="badge badge-success float-right">$'.($row->saleprice - $row->purchaseprice).'</span></li>
                   </ul>
 
                 </div>
@@ -76,10 +76,8 @@ include_once "header.php";
                 <div class="col-md-6">
 
                   <ul class="list-group">
-                  <center><p class="list-group-item list-group-item-info"><b>PRODUCT IMAGE</b></p></center>
-                    <li class="list-group-item">New <span class="badge">12</span></li>
-                    <li class="list-group-item">Deleted <span class="badge">5</span></li>
-                    <li class="list-group-item">Warnings <span class="badge">3</span></li>
+                  <center><p class="list-group-item list-group-item-info"><b>Product Image</b></p></center>
+                   <img src="productimages/'.$row->image.'" class="img-responsive"/></img>
                   </ul>
 
                 </div>
@@ -112,15 +110,6 @@ include_once "header.php";
     color: white;
   }
 
-  .content {
-    color: #151618;
-  }
-
-  .btn-primary {
-    background-color: #5C3EF4 !important;
-    border: #5C3EF4 !important;
-  }
-
   .card-header {
     border-bottom: 1px solid #242424 !important;
   }
@@ -142,6 +131,41 @@ include_once "header.php";
     border: 1px solid #242424 !important;
     color: white;
   }
+
+  .badge{
+    font-size: 1em;
+    font-weight: 500 !important;
+    background-color: #050505 !important;
+    border: solid 1px #242424 !important;
+    color: white !important;
+    border-radius: 4px !important;
+    padding: .5em !important;
+  }
+
+  /* .badge-info{
+    background-color: #7D4BDB !important;
+    border: solid 1px #050505 !important;
+    color: #050505 !important;
+    border-radius: 4px !important;
+  } */
+
+    /* .badge-warning{
+    background-color: #DBDB4B !important;
+    border: solid 1px #050505 !important;
+    color: #050505 !important;
+    border-radius: 4px !important;
+  } */
+
+    .badge-success{
+    color: #4BDB52 !important;
+  }
+
+    /* .badge-primary{
+    background-color: #DB4B4B !important;
+    border: solid 1px #050505 !important;
+    color: #050505 !important;
+    border-radius: 4px !important;
+  } */
 </style>
 
 
