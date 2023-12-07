@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 05:53 AM
+-- Generation Time: Dec 07, 2023 at 05:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -95,9 +95,10 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`pid`, `barcode`, `product`, `category`, `description`, `stock`, `purchaseprice`, `saleprice`, `image`) VALUES
-(1, '65465445646546654', 'Logitech PRO X SUPERLIGHT 2', 'Mouse', 'The next evolution of our championship-winning mouse. Meet the new weapon of choice for the world’s top esports athletes.', 154, 7999, 8999, '652f723b714f9_logitech_pro_x_superlight_2_mouse_white_910-006640.jpg'),
+(1, '65465445646546654', 'Logitech PRO X SUPERLIGHT 2', 'Mouse', 'High Speed Gaming Mouse', 154, 7999, 8999, '657150b840b88_pro-wireless-carbon-gallery-1.png'),
 (3, '3065502', 'RTX 3090 TI', 'Graphics Card', 'asddsdsdsds', 123, 1234, 1234, '65704d1931ad2_rtx3090.png'),
-(4, '4102528', 'RYZEN 5 3600', 'CPU', 'amd cpu', 200, 8000, 10000, '6530b6c05a309_asdasd.png');
+(4, '4102528', 'Keyboard', 'Keyboard', 'Brand New Keyboard', 200, 1000, 1200, '6571508012dca_pngfind.com-pc-png-492114.png'),
+(8, '8125831', 'Retro Computer', 'Computer', 'Classic Retro Computer', 100, 40000, 50000, '657150f7c0992_pngfind.com-desktop-pc-png-2109494.png');
 
 --
 -- Indexes for dumped tables
@@ -141,7 +142,7 @@ ALTER TABLE `tbl_form`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
