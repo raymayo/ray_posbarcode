@@ -207,7 +207,7 @@ $image_db = $row['image'];
                                         <div class="form-group">
                                             <label>Product Image</label>
                                             <br>
-                                            <image src"productimages/<?php echo $image_db ?>" class="img-rounded" width="50px" height="50px" />
+                                            <img src="../productimage/<?php echo $image_db;?>" alt="" class="img-rounded" width="50px" height="50px">
                                             <input type="file" class="input-group" name="product_image">
                                             <p>Upload Product Image</p>
                                         </div>

@@ -152,7 +152,7 @@ include_once "header.php";
     }
 
     .fa-barcode{
-        color: #5C3EF4 !important;
+        color: #fff !important;
     }
 
 

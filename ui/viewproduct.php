@@ -78,7 +78,7 @@ include '../barcode/barcode128.php';
 
                   <ul class="list-group">
                   <center><p class="list-group-item list-group-item-info"><b>Product Image</b></p></center>
-                   <img src="productimages/'.$row->image.'" class="img-responsive"/></img>
+                   <img src="../productimage/'.$row->image.'" class="img-responsive"/></img>
                   </ul>
 
                 </div>
