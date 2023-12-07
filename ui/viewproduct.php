@@ -15,7 +15,7 @@ if ($_SESSION['role'] == 'Admin') {
 }
 
 include_once "header.php";
-include '../barcode/barcode128.php';
+include '../barcode/barcode1282.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -142,6 +142,12 @@ include '../barcode/barcode128.php';
     border-radius: 4px !important;
     padding: .5em !important;
   }
+
+  .badge-info{
+    
+
+  }
+  
 
   /* .badge-info{
     background-color: #7D4BDB !important;

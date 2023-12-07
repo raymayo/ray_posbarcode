@@ -2,7 +2,7 @@
 ?>
 <style>
 div.b128{
- border-left: 1px black solid;
+ border-left: 1px white solid;
  height: 30px;
 } 
 </style>

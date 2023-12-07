@@ -35,14 +35,8 @@ include_once "header.php";
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="card card-primary card-outline">
-                        <div class="card-header">
-                            <h5 class="m-0">Generate Barcode</h5>
-                        </div>
+
                         <div class="card-body">
-
-
-
 
                             <div class="row">
                                 <div class="col-lg-12">
@@ -52,7 +46,7 @@ include_once "header.php";
                                             <h5 class="m-0">View Product</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form class="form-horizontal" method="post" action="barcode.php" target="_blank">
+                                            <form class="form-horizontal" method="post" action="../barcode/barcode.php" target="_blank">
 
                                                 <?php 
                                                 $id=$_GET['id'];
@@ -60,6 +54,8 @@ include_once "header.php";
                                                 $select->execute();
                                                 
                                                 while($row=$select->fetch(PDO::FETCH_OBJ)){
+
+                                                    print_r($row->product);
                                                    
                                                     echo'
                                                     
@@ -71,33 +67,41 @@ include_once "header.php";
                                                                 <p class="list-group-item list-group-item-info"><b>Print Barcode</b></p>
                                                             </center>
                                                             <div class="form-group">
-                                                                <label class="control-label col-sm-2" for="product">Product:</label>
+                                                                <label class="control-label col-sm-2" for="product">Product</label>
                                                                 <div class="col-sm-10">
-                                                                    <input autocomplete="OFF" type="text" class="form-control" id="product" name="product">
+                                                                    <input autocomplete="OFF" type="text" class="form-control" value="'.$row->product.'" id="product" name="product" readonly>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="control-label col-sm-2" for="product_id">Product ID:</label>
+                                                                <label class="control-label col-sm-2" for="product_id">Barcode</label>
                                                                 <div class="col-sm-10">
-                                                                    <input autocomplete="OFF" type="text" class="form-control" id="product_id" name="product_id">
+                                                                    <input autocomplete="OFF" type="text" class="form-control" id="product_id" value="'.$row->barcode.'" name="product_id" readonly>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="control-label col-sm-2" for="rate">Rate</label>
+                                                                <label class="control-label col-sm-2" for="rate">Price</label>
                                                                 <div class="col-sm-10">
-                                                                    <input autocomplete="OFF" type="text" class="form-control" id="rate" name="rate">
+                                                                    <input autocomplete="OFF" type="text" class="form-control" id="rate" value="'.$row->saleprice.'" name="rate" readonly>
                                                                 </div>
                                                             </div>
+
+                                                                <div class="form-group">
+                                                                <label class="control-label col-sm-2" for="rate">Stock Quantity</label>
+                                                                <div class="col-sm-10">
+                                                                    <input autocomplete="OFF" type="text" class="form-control" id="stock" value="'.$row->stock.'" name=stock" readonly>
+                                                                </div>
+                                                            </div>
+
                                                             <div class="form-group">
                                                                 <label class="control-label col-sm-2" for="print_qty">Barcode Quantity</label>
                                                                 <div class="col-sm-10">
-                                                                    <input autocomplete="OFF" type="print_qty" class="form-control" id="print_qty" name="print_qty">
+                                                                    <input autocomplete="OFF" type="print_qty" class="form-control" id="print_qty" name="print_qty" required>
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <div class="col-sm-offset-2 col-sm-10">
-                                                                    <button type="submit" class="btn btn-default">Submit</button>
+                                                                    <button type="submit" class="btn btn-default">Generate Barcode</button>
                                                                 </div>
                                                             </div>
                                                         </ul>
@@ -137,7 +141,9 @@ include_once "header.php";
         
 
 
-                        </div>
+
+
+
                     </div>
 
                 </div>
@@ -185,6 +191,12 @@ include_once "header.php";
     td {
         border-bottom: 1px solid #242424 !important;
     }
+
+      .list-group-item {
+    background-color: #050505 !important;
+    border: 1px solid #242424 !important;
+    color: white;
+  }
 </style>
 
 
